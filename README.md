@@ -18,7 +18,7 @@
     let style = document.createElement('link');
     Object.assign(style, {
         rel: 'stylesheet',
-        href: 'https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventorys/main/inventory.css'
+        href: 'https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/inventory.css'
     });
     document.head.appendChild(style);
 })();
