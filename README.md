@@ -12,13 +12,13 @@
 
 (function() {
     let script = document.createElement('script');
-    script.src = 'https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/inventory.js';
+    script.src = 'https://github.com/InfiniteSmasher/Better-Inventory/blob/main/inventory.js?raw=true';
     document.head.appendChild(script);
 
     let style = document.createElement('link');
     Object.assign(style, {
         rel: 'stylesheet',
-        href: 'https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/inventory.css'
+        href: 'https://github.com/InfiniteSmasher/Better-Inventory/blob/main/inventory.css?raw=true'
     });
     document.head.appendChild(style);
 })();
