@@ -240,7 +240,7 @@ function setMySkins() {
 }
 
 // Get Item Data JSON, Start Mod
-fetch("https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/itemData.json")
+fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory/itemData.json")
 	.then(res => res.json())
 	.then(res => {
 		itemData = res;
