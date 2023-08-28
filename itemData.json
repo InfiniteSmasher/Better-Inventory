@@ -1,0 +1,249 @@
+{
+   "cmdAll": "!a",
+   "cmdColor": "!ac",
+   "leagueTags": [
+      "sl",
+      "league"
+   ],
+   "creatorTags": [
+      "twitchcc",
+      "ytcc"
+   ],
+   "yolkerIds": [
+      3038
+   ],
+   "leagueIds": [
+      1117,
+      1358,
+      2186,
+      2194,
+      2195,
+      2196,
+      2219,
+      2220
+   ],
+   "creatorItems": [
+      {
+         "itemId": 1187,
+         "socialType": "YT",
+         "creatorName": "Wero",
+         "socialLink": "youtube.com/c/Werooo"
+      },
+      {
+         "itemId": 1189,
+         "socialType": "YT",
+         "creatorName": "Wero",
+         "socialLink": "youtube.com/c/Werooo"
+      },
+      {
+         "itemId": 1194,
+         "socialType": "Twitch",
+         "creatorName": "thee_owl",
+         "socialLink": "twitch.tv/thee_owl"
+      },
+      {
+         "itemId": 1196,
+         "socialType": "Twitch",
+         "creatorName": "C4bra",
+         "socialLink": "twitch.tv/c4bra"
+      },
+      {
+         "itemId": 1197,
+         "socialType": "Twitch",
+         "creatorName": "C4bra",
+         "socialLink": "twitch.tv/c4bra"
+      },
+      {
+         "itemId": 1198,
+         "socialType": "YT",
+         "creatorName": "Hazmatt",
+         "socialLink": "youtube.com/@ItsHazmatt"
+      },
+      {
+         "itemId": 1221,
+         "socialType": "YT",
+         "creatorName": "RandomLife",
+         "socialLink": "youtube.com/@Miguelillo_RL"
+      },
+      {
+         "itemId": 1225,
+         "socialType": "YT",
+         "creatorName": "Ethan Gamer",
+         "socialLink": "youtube.com/@EthanGamerTV"
+      },
+      {
+         "itemId": 1240,
+         "socialType": "YT",
+         "creatorName": "Wero",
+         "socialLink": "youtube.com/c/Werooo"
+      },
+      {
+         "itemId": 1305,
+         "socialType": "Twitch",
+         "creatorName": "JWBerry",
+         "socialLink": "twitch.tv/jwberry3d"
+      },
+      {
+         "itemId": 1306,
+         "socialType": "Twitch",
+         "creatorName": "Graysocean",
+         "socialLink": "twitch.tv/graysocean"
+      },
+      {
+         "itemId": 1346,
+         "socialType": "YT",
+         "creatorName": "Kilzomatic",
+         "socialLink": "youtube.com/@Kilzomatic"
+      },
+      {
+         "itemId": 1347,
+         "socialType": "YT",
+         "creatorName": "Sharkbucks",
+         "socialLink": "youtube.com/@Sharkbucks"
+      },
+      {
+         "itemId": 1381,
+         "socialType": "Twitch",
+         "creatorName": "KJDCitsme",
+         "socialLink": "twitch.tv/kjdcitsme"
+      },
+      {
+         "itemId": 1382,
+         "socialType": "Twitch",
+         "creatorName": "Novosuper",
+         "socialLink": "twitch.tv/novosuper"
+      },
+      {
+         "itemId": 2057,
+         "socialType": "YT",
+         "creatorName": "Shell League",
+         "socialLink": "youtube.com/@ShellLeague"
+      },
+      {
+         "itemId": 2143,
+         "socialType": "YT",
+         "creatorName": "Wero",
+         "socialLink": "youtube.com/c/Werooo"
+      },
+      {
+         "itemId": 2145,
+         "socialType": "Twitch",
+         "creatorName": "thee_owl",
+         "socialLink": "twitch.tv/thee_owl"
+      },
+      {
+         "itemId": 2147,
+         "socialType": "Twitch",
+         "creatorName": "C4bra",
+         "socialLink": "twitch.tv/c4bra"
+      },
+      {
+         "itemId": 2148,
+         "socialType": "YT",
+         "creatorName": "Hazmatt",
+         "socialLink": "youtube.com/@ItsHazmatt"
+      },
+      {
+         "itemId": 2149,
+         "socialType": "YT",
+         "creatorName": "Hazmatt",
+         "socialLink": "youtube.com/@ItsHazmatt"
+      },
+      {
+         "itemId": 2183,
+         "socialType": "YT",
+         "creatorName": "RandomLife",
+         "socialLink": "youtube.com/@Miguelillo_RL"
+      },
+      {
+         "itemId": 2185,
+         "socialType": "YT",
+         "creatorName": "Ethan Gamer",
+         "socialLink": "youtube.com/@EthanGamerTV"
+      },
+      {
+         "itemId": 2193,
+         "socialType": "Twitch",
+         "creatorName": "Lyerpald",
+         "socialLink": "twitch.tv/lyerpald"
+      },
+      {
+         "itemId": 2199,
+         "socialType": "YT",
+         "creatorName": "Chanti GG",
+         "socialLink": "youtube.com/@chantigg"
+      },
+      {
+         "itemId": 2200,
+         "socialType": "YT",
+         "creatorName": "Chanti GG",
+         "socialLink": "youtube.com/@chantigg"
+      },
+      {
+         "itemId": 2262,
+         "socialType": "YT",
+         "creatorName": "Polarized Moon",
+         "socialLink": "youtube.com/@PolarizedMoon"
+      },
+      {
+         "itemId": 2315,
+         "socialType": "YT",
+         "creatorName": "Sharkbucks",
+         "socialLink": "youtube.com/@Sharkbucks"
+      },
+      {
+         "itemId": 2363,
+         "socialType": "YT",
+         "creatorName": "Shell Tournaments",
+         "socialLink": "youtube.com/@shelltournaments"
+      },
+      {
+         "itemId": 2414,
+         "socialType": "Twitch",
+         "creatorName": "menoXD",
+         "socialLink": "twitch.tv/menoxd"
+      },
+      {
+         "itemId": 3639,
+         "socialType": "Twitch",
+         "creatorName": "JWBerry",
+         "socialLink": "twitch.tv/jwberry3d"
+      },
+      {
+         "itemId": 3646,
+         "socialType": "YT",
+         "creatorName": "Kilzomatic",
+         "socialLink": "youtube.com/@Kilzomatic"
+      },
+      {
+         "itemId": 3948,
+         "socialType": "Twitch",
+         "creatorName": "menoXD",
+         "socialLink": "twitch.tv/menoxd"
+      },
+      {
+         "itemId": 3033,
+         "socialType": "Twitch",
+         "creatorName": "Lyerpald",
+         "socialLink": "twitch.tv/lyerpald"
+      },
+      {
+         "itemId": 15035,
+         "socialType": "Twitch",
+         "creatorName": "menoXD",
+         "socialLink": "twitch.tv/menoxd"
+      },
+      {
+         "itemId": 16026,
+         "socialType": "YT",
+         "creatorName": "Chanti GG",
+         "socialLink": "youtube.com/@chantigg"
+      },
+      {
+         "itemId": 16029,
+         "socialType": "YT",
+         "creatorName": "Wero",
+         "socialLink": "youtube.com/c/Werooo"
+      }
+   ]
+}
