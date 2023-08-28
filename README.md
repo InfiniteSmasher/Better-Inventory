@@ -1,5 +1,4 @@
-# Better-Inventory
-Better Inventory Mod
+# Better Inventory | Shell Shockers
 ```js
 // ==UserScript==
 // @name         Better Inventory | Shell Shockers
