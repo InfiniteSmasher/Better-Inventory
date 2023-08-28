@@ -8,6 +8,7 @@
 // @icon         https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/ico_egg.png
 // @require      https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/htmlEdits.js
 // @match        https://shellshock.io
+// @run-at       document-end
 // ==/UserScript==
 
 (function() {
