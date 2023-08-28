@@ -310,17 +310,21 @@ window.onSkinSearch = function(val) {
 	}
 }
 
-vueApp.authCompleted = function() {
-	this.accountSettled = true;
-	if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
-	setMySkins();
-}
-
-vueApp.onSignOutClicked = function() {
-	BAWK.play('ui_reset');
-	this.$refs.homeScreen.onSignOutClicked();
-	setMySkins();
-}
+let i = setInterval(() => {
+	if (!vueApp) return;
+	clearInterval(i);
+	vueApp.authCompleted = function() {
+		this.accountSettled = true;
+		if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
+		setMySkins();
+	}
+	
+	vueApp.onSignOutClicked = function() {
+		BAWK.play('ui_reset');
+		this.$refs.homeScreen.onSignOutClicked();
+		setMySkins();
+	}
+}, 200);
 
 window.randomMode = 0;
 window.randomizeSkin = () => {
