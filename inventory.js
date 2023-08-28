@@ -240,7 +240,7 @@ function setMySkins() {
 }
 
 // Get Item Data JSON, Start Mod
-fetch("https://raw.githubusercontent.com/InfiniteSmasher/Shell-Shockers-Mods/main/itemData.json")
+fetch("https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/itemData.json")
 	.then(res => res.json())
 	.then(res => {
 		itemData = res;
