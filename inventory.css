@@ -1,0 +1,390 @@
+/* ---------------------------- [ Global ] */
+:root {
+	/* Override Border Width */
+	--ss-new-border-width: calc(var(--ss-space-sm) * 0.95);
+
+	/* Limited Border */
+	--ss-limited-border: #89097d;
+
+	/* Yolker Colors */
+	--ss-ny0: var(--ss-yolk0);
+	--ss-ny1: var(--ss-yolk2);
+	
+	/* Notif Colors */
+	--ss-notif0: #021340;
+	--ss-notif1: #1a64ff;
+	
+	/* League Colors */
+	--ss-league0: #400202;
+	--ss-league1: #ff1a1a;
+	
+	/* Manual Colors */
+	--ss-manual0: black;
+	--ss-manual1: #434343;
+	--ss-manual2: #A2A2A2;
+	--ss-manual3: #B1B1B1;
+}
+
+/* --------------------------- [ Overrides ] */
+/* Forces White Border on Custom Item Grid Elements */
+#equip_grid .grid-item:hover,
+#equip_grid .highlight {
+	border-color: var(--ss-white) !important;
+}
+
+/* Forces White Golden Egg Stroke on Custom Item Grid Elements */
+#equip_grid .highlight .egg-stroke {
+	fill: var(--ss-white) !important;
+}
+
+/* Brings Back Rounded Corners! (Item Grid Elements) */
+#equip_grid .grid-item {
+	border-width: var(--ss-new-border-width) !important;
+	border-radius: var(--ss-space-lg) !important;
+}
+
+/* Brings Back Rounded Corners! (Weapon Class Buttons) */
+.weapon_img {
+	border-width: var(--ss-new-border-width) !important;
+	border-radius: var(--ss-space-lg) !important;
+}
+
+/* Brings Back Rounded Corners! (Egg Color Selector) */
+.egg-color-select {
+	border-width: var(--ss-new-border-width) !important;
+	border-radius: var(--ss-space-lg) !important;
+}
+
+/* Brings Back Rounded Corners! (Item Type Buttons) */
+.ico_itemtype {
+	border-width: var(--ss-new-border-width) !important;
+	border-radius: var(--ss-space-lg) !important;
+}
+
+/* Rounded Youtube Thumbnails */
+.ytube-item img {
+	border-radius: var(--ss-space-sm) !important;
+}
+
+/* White Banner on Highlighted Items */
+.highlight .equip-item-banner {
+	background: white !important;
+}
+
+
+
+/* --------------------------- [ Premium ] */
+#equip_grid .grid-item.is-premium {
+	border-color: var(--ss-premium-txt);
+}
+
+.premium-item-cost {
+	color: var(--ss-premium-txt);
+}
+
+#equip_grid .is-premium.highlight {
+	background: radial-gradient(#f2f047, #d5ed40, #b7e93d, #97e53f, #71e044, #5ad744, #40cd44, #19c444, #14b43c, #0fa535, #0a962d, #048726) !important;
+}
+
+
+
+/* --------------------------- [ VIP ] */
+#equip_grid .grid-item.is-vip {
+	border-color: var(--ss-vip-txt);
+}
+
+#equip_grid .is-vip.highlight {
+	background: radial-gradient(#ffe180, #ffd759, #f4c843, #eab82a, #dfa900, #c79200, #ae7d00) !important;
+}
+
+
+
+/* --------------------------- [ Merch ] */
+#equip_grid .grid-item.is-merch {
+	background: linear-gradient(var(--ss-yolk0), var(--ss-brown));
+	border-color: var(--ss-brown);
+}
+
+.is-merch .equip-item-banner {
+	color: var(--ss-brown);
+	background: var(--ss-yolk0);
+	padding-left: 2.8em;
+	padding-right: 2.8em;
+	padding-top: .4em 2.8em;
+}
+
+#equip_grid .is-merch.highlight {
+	background: radial-gradient(var(--ss-yolk0), var(--ss-brown)) !important;
+}
+
+
+
+/* --------------------------- [ Limited ] */
+#equip_grid .grid-item.item-tag-limited {
+	border-color: var(--ss-limited-border);
+}
+
+#equip_grid .item-tag-limited.highlight {
+	background: radial-gradient(#ffbfed, #ffa8e6, #ff90df, #ff76d6, #ff57cd, #f945c4, #e000a9, #d2009f, #c50095) !important;
+}
+
+.item-tag-limited .equip_cost {
+	color: var(--ss-limited-border);
+}
+
+#equip_grid .item-tag-limited .egg-stroke {
+	fill: var(--ss-limited-border);
+}
+
+.item-tag-limited .equip-item-banner {
+	padding: 0.3em 2.4em;
+}
+
+
+/* --------------------------- [ Twitch Drops ] */
+#equip_grid .grid-item.is-drops {
+	background: linear-gradient(to right bottom, var(--twitch-lt-purple), var(--twitch-dk-purple));
+	border-color: var(--twitch-dk-purple);
+}
+
+.is-drops .equip-item-banner {
+	color: var(--twitch-dk-purple);
+	background: var(--twitch-lt-purple);
+	padding-left: 2.8em;
+	padding-right: 2.8em;
+	padding-top: .4em 2.8em;
+}
+
+#equip_grid .is-drops.highlight {
+	background: radial-gradient(var(--twitch-lt-purple), var(--twitch-dk-purple)) !important;
+}
+
+
+
+/* --------------------------- [ New Yolker ] */
+#equip_grid .grid-item.is-ny {
+	background: linear-gradient(to right bottom, var(--ss-ny0), var(--ss-ny1));
+	border-color: var(--ss-ny1);
+}
+
+.is-ny .equip-item-banner {
+	color: var(--ss-ny1);
+	background: var(--ss-ny0);
+	padding-left: 2.8em;
+	padding-right: 2.8em;
+	padding-top: .4em 2.8em;
+}
+
+#equip_grid .is-ny.highlight {
+	background: radial-gradient(var(--ss-ny0), var(--ss-ny1)) !important;
+}
+
+
+
+/* --------------------------- [ Notification ] */
+#equip_grid .grid-item.is-notif {
+	background: linear-gradient(to right bottom, var(--ss-notif1), var(--ss-notif0));
+	border-color: var(--ss-notif0);
+}
+
+.is-notif .equip-item-banner {
+	color: var(--ss-notif0);
+	background: var(--ss-notif1);
+	padding-left: 2.8em;
+	padding-right: 2.8em;
+	padding-top: .4em 2.8em;
+}
+
+#equip_grid .is-notif.highlight {
+	background: radial-gradient(var(--ss-notif1), var(--ss-notif0)) !important;
+}
+
+
+
+/* --------------------------- [ League ] */
+#equip_grid .grid-item.is-league {
+	background: linear-gradient(to right bottom, var(--ss-league1), var(--ss-league0));
+	border-color: var(--ss-league0);
+}
+
+.is-league .equip-item-banner {
+	color: var(--ss-league0);
+	background: var(--ss-league1);
+	padding-left: 2.8em;
+	padding-right: 2.8em;
+	padding-top: .4em 2.8em;
+}
+
+#equip_grid .is-league.highlight {
+	background: radial-gradient(var(--ss-league1), var(--ss-league0)) !important;
+}
+
+
+
+/* --------------------------- [ Redeemed ] */
+#equip_grid .grid-item.is-redeemed {
+	background: linear-gradient(to right bottom, var(--ss-manual3), var(--ss-manual2), var(--ss-manual1), var(--ss-manual0));
+	border-color: var(--ss-manual0);
+}
+
+.is-redeemed .equip-item-banner {
+	color: var(--ss-manual0);
+	background: var(--ss-manual3);
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: .4em 2.8em;
+}
+
+#equip_grid .is-redeemed.highlight {
+	background: radial-gradient(var(--ss-manual3), var(--ss-manual2), var(--ss-manual1), var(--ss-manual0)) !important;
+}
+
+/* Changes Redeemed Item Shadow Color to Black */
+.is-redeemed .equip_icon, 
+.is-redeemed .giveStuffPopup-content .equip_icon {
+	filter: drop-shadow(0 2mm 0 rgba(0, 0, 0, .4)) !important;
+}
+
+
+
+/* --------------------------- [ Content Creator ] */
+/* ---------- [ Youtube ] */
+#equip_grid .grid-item.is-creator-yt {
+	background: linear-gradient(to right bottom, white, red);
+	border-color: red;
+}
+
+.is-creator-yt .equip-item-banner {
+	color: red;
+	background: white;
+	padding-left: 2.8em;
+	padding-right: 2.8em;
+	padding-top: .4em 2.8em;
+}
+
+#equip_grid .is-creator-yt.highlight {
+	background: radial-gradient(white, red) !important;
+}
+
+.is-creator-yt .equip_cost {
+	color: red;
+}
+
+#equip_grid .is-creator-yt .egg-stroke {
+	fill: red;
+}
+
+/* ---------- [ Twitch ] */
+#equip_grid .grid-item.is-creator-twitch {
+	background: linear-gradient(to right bottom, white, var(--ss-twitch));
+	border-color: var(--ss-twitch);
+}
+
+.is-creator-twitch .equip-item-banner {
+	color: var(--ss-twitch);
+	background: white;
+}
+
+#equip_grid .is-creator-twitch.highlight {
+	background: radial-gradient(white, var(--ss-twitch)) !important;
+}
+
+.is-creator-twitch .equip_cost {
+	color: var(--ss-twitch);
+}
+
+#equip_grid .is-creator-twitch .egg-stroke {
+	fill: var(--ss-twitch);
+}
+
+
+
+
+/* ---------- [ Skin Search ] */
+.inventory-skin-search div input {
+	width: 15.4em !important;
+}
+
+.shop-skin-search div input {
+	width: 19em !important;
+}
+
+.shop-skin-search div,
+.inventory-skin-search div {
+    display: inline;
+    margin-bottom: 1em !important;
+}
+
+.inventory-skin-search label {
+    right: 5em;
+    bottom: -0.5em;
+}
+
+.shop-skin-search label {
+    right: 1.5em;
+    bottom: -0.7em;
+}
+
+.inventory-skin-search button {
+    text-align: center !important;
+    margin-left: 0.5em;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.shop-skin-search input,
+.inventory-skin-search input {
+    margin-bottom: 1em;
+    border-width: var(--ss-new-border-width) !important;
+    border-radius: var(--ss-space-lg) !important;
+}
+
+.limited-input {
+	margin-top: 0.35em;
+}
+
+.random-button {
+	position: relative;
+    top: 0.122em;
+	right: 0.2em;
+}
+
+.search_grid {
+	height: 29em !important;
+}
+
+.btn_rainbow {
+	animation: colorchange 10s linear 1s infinite;
+	-webkit-animation: colorchange 5s linear 0s infinite alternate;
+	background: colorchange !important;
+	border-color: white;
+}
+
+@keyframes colorchange
+{
+	0%   {background: #ff0000;}
+	20%  {background: #ad00ff;}
+	40%  {background: #0033ff;}
+	60%  {background: #00d7ff;}
+	80%  {background: #2fff00;}
+	100% {background: #ffd800;}
+}
+
+
+/*
+.bevel_rainbow {
+	animation: bevelchange 10s linear 1s infinite;
+	-webkit-animation: bevelchange 5s linear 0s infinite alternate;
+	box-shadow: bevelchange !important;
+}
+
+@keyframes bevelchange
+{
+	0%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(140, 8, 8), var(--ss-btn-light-bevel) rgb(230, 0, 0);}
+	20%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(105, 8, 140), var(--ss-btn-light-bevel) rgb(149, 0, 230);}
+	40%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(17, 8, 140), var(--ss-btn-light-bevel) rgb(0, 8, 230);}
+	60%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(8, 96, 140), var(--ss-btn-light-bevel) rgb(0, 203, 230);}
+	80%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(8, 140, 17), var(--ss-btn-light-bevel) rgb(0, 230, 38);}
+	100%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(131, 140, 8), var(--ss-btn-light-bevel) rgb(230, 222, 0);}
+}
+*/
