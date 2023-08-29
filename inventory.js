@@ -181,7 +181,7 @@ function makeVueChanges() {
 		if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
 	}
 	vueApp.onSignOutClicked = function() {
-		setMySkins();
+		setTimeout(setMySkins, 500);
 		BAWK.play('ui_reset');
 		this.$refs.homeScreen.onSignOutClicked();
 	}
