@@ -1,6 +1,7 @@
 let itemData = window.mySkins = {};
 const errorFunc = () => { alert("The Better Inventory mod didnt load properly, please refresh!!") };
 window.onSkinSearch = window.randomizeSkin = window.randomizeColor = errorFunc;
+window.randomMode = 0;
 window.cmdStr = "";
 
 function makeVueChanges() {
@@ -174,6 +175,16 @@ function makeVueChanges() {
 			return 0;
 		});
 	}
+	vueApp.authCompleted = function() {
+		this.accountSettled = true;
+		if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
+		setMySkins();
+	}
+	comp_account_panel.methods.onSignOutClicked = function() {
+		BAWK.play('ui_reset');
+		this.$refs.homeScreen.onSignOutClicked();
+		setMySkins();
+	}
 }
 
 // Add needed tags to items - hopefully this will be done natively, BWD will get around to it...eventually :)
@@ -310,23 +321,6 @@ window.onSkinSearch = function(val) {
 	}
 }
 
-let i = setInterval(() => {
-	if (typeof(vueApp) === "undefined") return;
-	clearInterval(i);
-	vueApp.authCompleted = function() {
-		this.accountSettled = true;
-		if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
-		setMySkins();
-	}
-	
-	vueApp.onSignOutClicked = function() {
-		BAWK.play('ui_reset');
-		this.$refs.homeScreen.onSignOutClicked();
-		setMySkins();
-	}
-}, 200);
-
-window.randomMode = 0;
 window.randomizeSkin = () => {
 	if (window.randomMode > 0 && document.getElementsByName("search-skins")) {
 		window.onSkinSearch(document.getElementsByName("search-skins")[0].value);
