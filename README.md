@@ -1,7 +1,7 @@
 # Better Inventory | Shell Shockers
 ```js
 // ==UserScript==
-// @name         Better Inventory | Shell Shockers
+// @name         Better Inventory 2 | Shell Shockers
 // @version      4.0
 // @author       Infinite Smasher
 // @description  Inventory Upgrades - item search bar, new item themes, item randomizer, misc UI tweaks, and MOAR!
@@ -13,13 +13,13 @@
 
 (function() {
     let script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory/inventory.js';
+    script.src = 'https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/inv.js';
     document.head.appendChild(script);
 
     let style = document.createElement('link');
     Object.assign(style, {
         rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory/inventory.css'
+        href: 'https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/inv.css'
     });
     document.head.appendChild(style);
 })();
