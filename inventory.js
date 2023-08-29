@@ -1,5 +1,5 @@
 let itemData = window.mySkins = {};
-const errorFunc = () => { alert("The Better Inventory mod didnt load properly, please refresh!") };
+const errorFunc = () => { alert("The Better Inventory mod didnt load properly, please refresh!!") };
 window.onSkinSearch = window.randomizeSkin = window.randomizeColor = errorFunc;
 window.cmdStr = "";
 
