@@ -180,7 +180,7 @@ function makeVueChanges() {
 		this.accountSettled = true;
 		if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
 	}
-	comp_account_panel.methods.onSignOutClicked = function() {
+	vueApp.onSignOutClicked = function() {
 		setMySkins();
 		BAWK.play('ui_reset');
 		this.$refs.homeScreen.onSignOutClicked();
