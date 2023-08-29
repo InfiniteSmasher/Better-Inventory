@@ -176,14 +176,14 @@ function makeVueChanges() {
 		});
 	}
 	vueApp.authCompleted = function() {
+		setMySkins();
 		this.accountSettled = true;
 		if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
-		setMySkins();
 	}
 	comp_account_panel.methods.onSignOutClicked = function() {
+		setMySkins();
 		BAWK.play('ui_reset');
 		this.$refs.homeScreen.onSignOutClicked();
-		setMySkins();
 	}
 }
 
