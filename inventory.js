@@ -311,7 +311,7 @@ window.onSkinSearch = function(val) {
 }
 
 let i = setInterval(() => {
-	if (!vueApp) return;
+	if (typeof(vueApp) === "undefined") return;
 	clearInterval(i);
 	vueApp.authCompleted = function() {
 		this.accountSettled = true;
