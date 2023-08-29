@@ -13,7 +13,7 @@
 
 (function() {
     let script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/inventoryMain.js';
+    script.src = 'https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/inventory.js';
     document.head.appendChild(script);
 
     let style = document.createElement('link');
