@@ -250,20 +250,6 @@ function setMySkins() {
 	};
 }
 
-// Get Item Data JSON, Start Mod
-fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory/itemData.json")
-	.then(res => res.json())
-	.then(res => {
-		itemData = res;
-		window.cmdStr = ` (${itemData.cmdAll} or ${itemData.cmdColor})`;
-		let randomButton = document.getElementById("randomize-button");
-		if (randomButton) {
-			randomButton.title = `Type ${itemData.cmdAll} in search bar to randomize all skins and ${itemData.cmdColor} to also randomize colors!`;
-		}
-		setupItemTags();
-		makeVueChanges();
-	});
-
 // Function for skin search
 window.onSkinSearch = function(val) {
 	let searchStr = val.toLowerCase();
@@ -361,3 +347,17 @@ window.randomizeColor = (playSound) => {
 	}
 	extern.setShellColor(Math.floor(Math.random() * (mySkins.maxColor + 1)));
 };
+
+// Get Item Data JSON, Start Mod
+fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory/itemData.json")
+	.then(res => res.json())
+	.then(res => {
+		itemData = res;
+		window.cmdStr = ` (try ${itemData.cmdAll} or ${itemData.cmdColor})`;
+		let randomButton = document.getElementById("randomize-button");
+		if (randomButton) {
+			randomButton.title = `Type ${itemData.cmdAll} in search bar to randomize all skins and ${itemData.cmdColor} to also randomize colors!`;
+		}
+		setupItemTags();
+		makeVueChanges();
+	});
