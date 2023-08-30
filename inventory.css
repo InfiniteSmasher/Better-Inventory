@@ -388,3 +388,29 @@
 	100%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(131, 140, 8), var(--ss-btn-light-bevel) rgb(230, 222, 0);}
 }
 */
+
+/* Force Green Randomizer Button On Themes */
+.random-button.btn_green {
+	background: #13BA65;
+	border-color: #046306;
+}
+
+.random-button.bevel_green {
+    box-shadow: var(--ss-box-shadow-1),
+	var(--ss-btn-dark-bevel) rgb(14,140,76),
+	var(--ss-btn-light-bevel) #87ddbb;
+}
+
+.random-button.bevel_green.selected, .random-button.bevel_green:active {
+	box-shadow: 
+		0.05em 0.05em 0.3em #0E7697,
+		inset -0.1em -0.1em 0.3em #87ddbb,
+		inset 0.1em 0.1em 0.3em #046306;
+}
+
+.bevel_green:hover {
+	box-shadow:
+		var(--ss-box-shadow-1),
+		inset -0.1em -0.1em 0.1em rgba(0, 0 , 0, .1),
+		inset 0.1em 0.1em 0.1em rgba(0, 0 , 0, .1);
+}
