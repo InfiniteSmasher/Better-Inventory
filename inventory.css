@@ -4,19 +4,19 @@
 	--ss-new-border-width: calc(var(--ss-space-sm) * 0.95);
 
 	/* Limited Border */
-	--ss-limited-border: #89097d;
+	--ss-limited-border: #89097D;
 
 	/* Yolker Colors */
-	--ss-ny0: var(--ss-yolk0);
-	--ss-ny1: var(--ss-yolk2);
+	--ss-ny0: #F1C59A; /* ss-yolk0 */
+	--ss-ny1: #D97611; /* ss-yolk2 */
 	
 	/* Notif Colors */
 	--ss-notif0: #021340;
-	--ss-notif1: #1a64ff;
+	--ss-notif1: #1A64FF;
 	
 	/* League Colors */
 	--ss-league0: #400202;
-	--ss-league1: #ff1a1a;
+	--ss-league1: #FF1A1A;
 	
 	/* Manual Colors */
 	--ss-manual0: black;
