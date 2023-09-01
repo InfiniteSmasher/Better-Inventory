@@ -349,7 +349,7 @@ window.randomizeColor = (playSound) => {
 };
 
 // Get Item Data JSON, Start Mod
-fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory/itemData.json")
+fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/itemData.json")
 	.then(res => res.json())
 	.then(res => {
 		itemData = res;
