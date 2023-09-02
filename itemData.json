@@ -22,6 +22,63 @@
       2219,
       2220
    ],
+   "tagEdits": [
+      {
+         "itemId": 3038,
+         "action": "add",
+         "itemTags": ["Newsletter"],
+      },
+      {
+         "itemId": 1117,
+         "action": "add",
+         "itemTags": ["League"],
+      },
+      {
+         "itemId": 1358,
+         "action": "add",
+         "itemTags": ["League"],
+      },
+      {
+         "itemId": 2186,
+         "action": "add",
+         "itemTags": ["League"],
+      },
+      {
+         "itemId": 2194,
+         "action": "add",
+         "itemTags": ["League"],
+      },
+      {
+         "itemId": 2195,
+         "action": "add",
+         "itemTags": ["League"],
+      },
+      {
+         "itemId": 2196,
+         "action": "add",
+         "itemTags": ["League"],
+      },
+      {
+         "itemId": 2219,
+         "action": "add",
+         "itemTags": ["League"],
+      },
+      {
+         "itemId": 2220,
+         "action": "add",
+         "itemTags": ["League"],
+      },
+      {
+         "itemId": 2263,
+         "action": "remove",
+         "itemTags": ["Drops2"],
+      },
+      {
+         "itemId": 1187,
+         "action": "remove",
+         "itemTags": ["Sep23"],
+      }
+   ],
    "creatorItems": [
       {
          "itemId": 1187,
