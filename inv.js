@@ -175,16 +175,20 @@ function makeVueChanges() {
 			return 0;
 		});
 	}
-	vueApp.authCompleted = function() {
-		setMySkins();
-		this.accountSettled = true;
-		if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
-	}
-	vueApp.onSignOutClicked = function() {
-		setTimeout(setMySkins, 500);
-		BAWK.play('ui_reset');
-		this.$refs.homeScreen.onSignOutClicked();
-	}
+	let i = setInterval(() => {
+		if (typeof(vueApp) === "undefined" || !vueApp.authCompleted || !vueApp.onSignOutClicked) return;
+		clearInterval(i);
+		vueApp.authCompleted = function() {
+			setMySkins();
+			this.accountSettled = true;
+			if (vueApp.$refs.firebaseSignInPopup.isShowing) this.hideFirebaseSignIn();
+		}
+		vueApp.onSignOutClicked = function() {
+			setTimeout(setMySkins, 500);
+			BAWK.play('ui_reset');
+			this.$refs.homeScreen.onSignOutClicked();
+		}
+	}, 100);
 }
 
 // Add needed tags to items - hopefully this will be done natively, BWD will get around to it...eventually :)
