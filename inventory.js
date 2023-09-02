@@ -234,6 +234,23 @@ function setupItemTags() {
 
 		// Remove "Drops2" tag from EGG ORG Shattered Crest Stamp
 		extern.catalog.findItemById(2263).item_data.tags.pop();
+		
+		// Make item tag edits
+		itemData.tagEdits.forEach(edit => {
+			let item = extern.catalog.findItemById(edit.itemId);
+			if (!item) return;
+			if (!item.item_data.tags) {
+				item.item_data.tags = [];
+			}
+			edit.itemTags.forEach(tag => {
+				let includes = item.item_data.tags.includes(tag);
+				if (edit.action == "add" && !includes) {
+					item.item_data.tags.push(tag);
+				} else if (includes) {
+					item.item_data.tags.splice(item.item_data.tags.indexOf(tag), 1);
+				}
+			});
+		});
 	}, 250);
 }
 
