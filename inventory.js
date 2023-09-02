@@ -199,47 +199,7 @@ function setupItemTags() {
 		if (!extern.catalog || !extern.specialItemsTag) return;
 		clearInterval(interval);
 
-		// Add "Limited" tag to Monthly Featured Items
-		extern.catalog.getTaggedItems(extern.specialItemsTag).forEach(item => {
-			if (!item.item_data.tags) {
-				item.item_data.tags = [];
-			}
-			if (item.item_data.tags.includes("Limited")) return;
-			item.item_data.tags.push("Limited");
-		});
-
-		// Add "Newsletter" tag to New Yolkers that don't have them yet (BWD forgot about these smh)
-		extern.catalog.findItemsByIds(itemData.yolkerIds).forEach(item => {
-			if (!item.item_data.tags) {
-				item.item_data.tags = [];
-			}
-			if (item.item_data.tags.includes("Newsletter")) return;
-			item.item_data.tags.push("Newsletter");
-		});
-
-		// Add "League" tag to League Items that don't have them yet (BWD forgot about these smh)
-		extern.catalog.findItemsByIds(itemData.leagueIds).forEach(item => {
-			if (!item.item_data.tags) {
-				item.item_data.tags = [];
-			}
-			if (item.item_data.tags.includes("League")) return;
-			item.item_data.tags.push("League");
-		});
-
-		// Add "Creator" and Social Type tags to Content Creator Shop Items
-		itemData.creatorItems.forEach(creatorItem => {
-			let item = extern.catalog.findItemById(creatorItem.itemId);
-			if (!item.item_data.tags) {
-				item.item_data.tags = [];
-			}
-			if (item.item_data.tags.includes(`${creatorItem.socialType}CC`)) return;
-			item.item_data.tags.push(`${creatorItem.socialType}CC`);
-		});
-
-		// Remove "Drops2" tag from EGG ORG Shattered Crest Stamp
-		extern.catalog.findItemById(2263).item_data.tags.pop();
-		
-		// Make item tag edits
+		// Add or Remove Missing/Wrong Item Tags
 		itemData.tagEdits.forEach(edit => {
 			let item = extern.catalog.findItemById(edit.itemId);
 			if (!item) return;
@@ -254,6 +214,25 @@ function setupItemTags() {
 					item.item_data.tags.splice(item.item_data.tags.indexOf(tag), 1);
 				}
 			});
+		});
+
+		// Add "Limited" tag to Monthly Featured Items
+		extern.catalog.getTaggedItems(extern.specialItemsTag).forEach(item => {
+			if (!item.item_data.tags) {
+				item.item_data.tags = [];
+			}
+			if (item.item_data.tags.includes("Limited")) return;
+			item.item_data.tags.push("Limited");
+		});
+
+		// Add "Creator" and Social Type tags to Content Creator Shop Items
+		itemData.creatorItems.forEach(creatorItem => {
+			let item = extern.catalog.findItemById(creatorItem.itemId);
+			if (!item.item_data.tags) {
+				item.item_data.tags = [];
+			}
+			if (item.item_data.tags.includes(`${creatorItem.socialType}CC`)) return;
+			item.item_data.tags.push(`${creatorItem.socialType}CC`);
 		});
 	}, 250);
 }
