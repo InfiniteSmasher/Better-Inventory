@@ -64,7 +64,7 @@ function makeVueChanges() {
 			return;
 		} else {
 			if (this.isPremium) {
-				return this.loc.p_premium_item_banner_txt;
+				return 'Premium';
 			}
 			if (this.isVipItem) {
 				return 'VIP';
