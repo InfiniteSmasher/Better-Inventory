@@ -7,7 +7,7 @@
 // @description  Inventory Upgrades - item search bar, new item themes, item randomizer, misc UI tweaks, and MOAR!
 // @icon         https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/ico_egg.png
 // @require      https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/htmlEdits.js
-// @match        https://shellshock.io
+// @match        *://shellshock.io/*
 // @run-at       document-end
 // ==/UserScript==
 
