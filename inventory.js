@@ -1,8 +1,5 @@
 let itemData = window.mySkins = {};
-const errorFunc = () => { alert("The Better Inventory mod didnt load properly, please refresh!!") };
-window.onSkinSearch = window.randomizeSkin = window.randomizeColor = errorFunc;
-window.randomMode = 0;
-window.cmdStr = "";
+window.randomizeSkin = () => { alert("The Better Inventory mod didnt load properly, please refresh!!") };
 
 function makeVueChanges() {
 	// Merch ("physical" unlock) Item Check
@@ -55,7 +52,7 @@ function makeVueChanges() {
 
 	// Banner Check
 	comp_item.computed.hasBanner = function() {
-		return this.isPremium || this.isVipItem || this.isLimited || this.isMerchItem || this.isDropsItem || this.isNotifItem || this.isLeagueItem || this.isNewYolker || this.isRedeemed || this.isYTCreatorItem || this.isTwitchCreatorItem;
+		return this.isPremium || this.isVipItem || this.isLimited || this.isMerchItem || this.isDropsItem || this.isNotifItem || this.isLeagueItem || this.isNewYolker /*|| this.isRedeemed*/ || this.isYTCreatorItem || this.isTwitchCreatorItem;
 	}
 
 	// Add Banner Text
@@ -84,9 +81,9 @@ function makeVueChanges() {
 			if (this.isNewYolker) {
 				return 'Yolker';
 			}
-			if (this.isRedeemed) {
+  			if (this.isRedeemed) {
 				return 'Redeemed';
-			}
+			}	
 			if (this.isYTCreatorItem) {
 				return 'YT CC';
 			}
@@ -94,7 +91,7 @@ function makeVueChanges() {
 				return 'Twitch CC';
 			}
 			if (this.isLimited) {
-				return this.loc.eq_limited;
+				return 'Limited';
 			}
 		}
 	}
@@ -110,7 +107,7 @@ function makeVueChanges() {
 			'is-ny': this.isNewYolker,
 			'is-notif': this.isNotifItem,
 			'is-league': this.isLeagueItem,
-			'is-redeemed': this.isRedeemed,
+   			'is-redeemed': this.isRedeemed,
 			'is-creator-yt': this.isYTCreatorItem,
 			'is-creator-twitch': this.isTwitchCreatorItem
 		}
@@ -175,8 +172,9 @@ function makeVueChanges() {
 			return 0;
 		});
 	}
+	
 	let i = setInterval(() => {
-		if (typeof(vueApp) === "undefined" || !vueApp.authCompleted || !vueApp.onSignOutClicked) return;
+		if (typeof (vueApp) === "undefined" || !vueApp.authCompleted || !vueApp.onSignOutClicked) return;
 		clearInterval(i);
 		vueApp.authCompleted = function() {
 			setMySkins();
@@ -250,67 +248,7 @@ function setMySkins() {
 	};
 }
 
-// Function for skin search
-window.onSkinSearch = function(val) {
-	let searchStr = val.toLowerCase();
-	let randomButton = document.getElementById("randomize-button");
-	const regex1 = new RegExp(`^${itemData.cmdAll}(\\s*(.+))?`);
-	const regex2 = new RegExp(`^${itemData.cmdColor}(\\s*(.+))?`);
-	let mode = 0;
-	
-	if (regex1.test(searchStr)) {
-		mode = 1;
-	}
-	if (regex2.test(searchStr)) {
-		mode = 2;
-	}
-
-	if (window.randomMode != mode) {
-		window.randomMode = mode;
-		if (window.randomMode > 0) {
-			if (window.randomMode == 1) {
-				randomButton.className = randomButton.className.replaceAll("blue", "green").replaceAll("rainbow", "green");
-				BAWK.play("kotc_capture");
-			} else if (window.randomMode == 2) {
-				randomButton.className = randomButton.className.replaceAll("blue", "rainbow").replaceAll("green", "rainbow");
-				BAWK.play("kotc_pointscore");
-			}
-		} else {
-			randomButton.className = randomButton.className.replaceAll("green", "blue").replaceAll("rainbow", "blue");
-		}
-	}
-
-	if (window.randomMode > 0) {
-		let match1 = searchStr.match(regex1);
-		let match2 = searchStr.match(regex2);
-		
-		if (match1) {
-			searchStr = match1[1]
-		}
-		if (match2) {
-			searchStr = match2[1]
-		}
-		
-		if (val == itemData.cmdAll || val == itemData.cmdColor) {
-			searchStr = "";
-		}
-	}
-
-	if (searchStr != null) {
-		searchStr = searchStr.trim();
-		let itemGrid = document.getElementById("equip_sidebox").querySelector("#item_grid #equip_grid");
-		for (const div of itemGrid.childNodes) {
-			if (div.className && div.className == "box_relative center_h") {
-				div.style.display = (!div.querySelector("#an_item").getAttribute("data-search").toLowerCase().includes(searchStr.toLowerCase())) ? "none" : "";
-			}
-		}
-	}
-}
-
 window.randomizeSkin = () => {
-	if (window.randomMode > 0 && document.getElementsByName("search-skins")) {
-		window.onSkinSearch(document.getElementsByName("search-skins")[0].value);
-	}
 	let categories = ["Soldier", "Scrambler", "Ranger", "Eggsploder", "Whipper", "Crackshot", "TriHard"];
 	let primaryItems = mySkins.primaries.filter(x => x.category_name.includes(categories[vueApp.classIdx]));
 	let randomItems = {
@@ -323,41 +261,22 @@ window.randomizeSkin = () => {
 	};
 
 	vueData.equip.selectedItem = randomItems[vueApp.equip.selectedItemType];
-	for (let [typeId, item] of Object.entries(randomItems)) {
-		if (window.randomMode == 0 && typeId != vueApp.equip.selectedItemType) {
-			delete randomItems[typeId];
-			item = extern.getEquippedItems()[typeId];
-		}
+	for (let item of Object.values(randomItems)) {
 		if (item) {
 			extern.tryEquipItem(item);
 		}
 	}
-	if (window.randomMode == 2) {
-		window.randomizeColor();
-	}
 	extern.poseWithItems(randomItems);
+	extern.setShellColor(Math.floor(Math.random() * (mySkins.maxColor + 1)));
 	vueApp.$refs.equipScreen.updateEquippedItems();
 	BAWK.play("ui_equip");
 }
-
-window.randomizeColor = (playSound) => {
-	playSound = hasValue(playSound);
-	if (playSound) {
-		BAWK.play("ui_onchange");
-	}
-	extern.setShellColor(Math.floor(Math.random() * (mySkins.maxColor + 1)));
-};
 
 // Get Item Data JSON, Start Mod
 fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/modData.json")
 	.then(res => res.json())
 	.then(res => {
 		itemData = res;
-		window.cmdStr = ` (try ${itemData.cmdAll} or ${itemData.cmdColor})`;
-		let randomButton = document.getElementById("randomize-button");
-		if (randomButton) {
-			randomButton.title = `Type ${itemData.cmdAll} in search bar to randomize all skins and ${itemData.cmdColor} to also randomize colors!`;
-		}
 		setupItemTags();
 		makeVueChanges();
 	});
