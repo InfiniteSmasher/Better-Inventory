@@ -298,31 +298,30 @@
 }
 
 
-
-
 /* ---------- [ Skin Search ] */
-.inventory-skin-search div input {
-	width: 15.4em !important;
+.inventory-skin-search input {
+	width: 15.3em !important;
 }
 
-.shop-skin-search div input {
+.shop-skin-search input {
 	width: 19em !important;
 }
 
-.shop-skin-search div,
-.inventory-skin-search div {
-    display: inline;
-    margin-bottom: 1em !important;
+.shop-skin-search label i {
+	top: -1em;
+	right: 0.1em !important;
 }
 
 .inventory-skin-search label {
-    right: 5em;
-    bottom: -0.5em;
+	right: 4.2em !important;
 }
 
-.shop-skin-search label {
-    right: 1.5em;
-    bottom: -0.7em;
+.inventory-skin-search label i {
+	top: -1em;
+}
+
+.limited-msg-wrapper {
+	margin-bottom: .6em !important;
 }
 
 .inventory-skin-search button {
@@ -339,78 +338,8 @@
     border-radius: var(--ss-space-lg) !important;
 }
 
-.limited-input {
-	margin-top: 0.35em;
-}
-
 .random-button {
 	position: relative;
     top: 0.122em;
 	right: 0.2em;
-}
-
-.search_grid {
-	height: 29em !important;
-}
-
-.btn_rainbow {
-	animation: colorchange 10s linear 1s infinite;
-	-webkit-animation: colorchange 5s linear 0s infinite alternate;
-	background: colorchange !important;
-	border-color: white;
-}
-
-@keyframes colorchange
-{
-	0%   {background: #ff0000;}
-	20%  {background: #ad00ff;}
-	40%  {background: #0033ff;}
-	60%  {background: #00d7ff;}
-	80%  {background: #2fff00;}
-	100% {background: #ffd800;}
-}
-
-
-/*
-.bevel_rainbow {
-	animation: bevelchange 10s linear 1s infinite;
-	-webkit-animation: bevelchange 5s linear 0s infinite alternate;
-	box-shadow: bevelchange !important;
-}
-
-@keyframes bevelchange
-{
-	0%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(140, 8, 8), var(--ss-btn-light-bevel) rgb(230, 0, 0);}
-	20%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(105, 8, 140), var(--ss-btn-light-bevel) rgb(149, 0, 230);}
-	40%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(17, 8, 140), var(--ss-btn-light-bevel) rgb(0, 8, 230);}
-	60%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(8, 96, 140), var(--ss-btn-light-bevel) rgb(0, 203, 230);}
-	80%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(8, 140, 17), var(--ss-btn-light-bevel) rgb(0, 230, 38);}
-	100%   {box-shadow: (--ss-box-shadow-1), var(--ss-btn-dark-bevel) rgb(131, 140, 8), var(--ss-btn-light-bevel) rgb(230, 222, 0);}
-}
-*/
-
-/* Force Green Randomizer Button On Themes */
-.random-button.btn_green {
-	background: #13BA65;
-	border-color: #046306;
-}
-
-.random-button.bevel_green {
-    box-shadow: var(--ss-box-shadow-1),
-	var(--ss-btn-dark-bevel) rgb(14,140,76),
-	var(--ss-btn-light-bevel) #87ddbb;
-}
-
-.random-button.bevel_green.selected, .random-button.bevel_green:active {
-	box-shadow: 
-		0.05em 0.05em 0.3em #0E7697,
-		inset -0.1em -0.1em 0.3em #87ddbb,
-		inset 0.1em 0.1em 0.3em #046306;
-}
-
-.bevel_green:hover {
-	box-shadow:
-		var(--ss-box-shadow-1),
-		inset -0.1em -0.1em 0.1em rgba(0, 0 , 0, .1),
-		inset 0.1em 0.1em 0.1em rgba(0, 0 , 0, .1);
 }
