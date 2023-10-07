@@ -80,7 +80,7 @@
 	border-color: var(--ss-premium-txt);
 }
 /* $ Pricetag + Egg Spinner */
-.grid-item.is-premium div i,
+.grid-item.is-premium div i:not(.fa-dollar-sign),
 .premium-item-cost {
 	color: var(--ss-premium-txt);
 }
