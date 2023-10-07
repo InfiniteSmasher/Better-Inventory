@@ -113,6 +113,37 @@ function makeVueChanges() {
 		}
 	}
 
+	// Tooltips
+	comp_item.computed.tooltip = function() {
+		if (this.showTooltip) {
+			let type = "";
+			if (this.isLimited) {
+				type = " limited"
+			} else if (this.isPremium) {
+				type = " premium"
+			} else if (this.isVipItem) {
+				type = " vip"
+			} else if (this.isMerchItem) {
+				type = " merch"
+			} else if (this.isDropsItem) {
+				type = " drops"
+			} else if (this.isNewYolker) {
+				type = " ny"
+			} else if (this.isNotifItem) {
+				type = " notif"
+			} else if (this.isLeagueItem) {
+				type = " league"
+			} else if (this.isRedeemed) {
+				type = " redeemed"
+			} else if (this.isYTCreatorItem) {
+				type = " ytcc"
+			} else if (this.isTwitchCreatorItem) {
+				type = " twitchcc"
+			}
+			return 'tool-tip' + type;
+		}
+	}
+
 	// Modify Item Sorting (Order)
 	// Premium --> VIP --> Merch --> Drops --> Yolker --> League --> Redeemed --> Default --> Limited --> Creator --> Purchase...
 	comp_item_grid.computed.itemsSorted = function() {
