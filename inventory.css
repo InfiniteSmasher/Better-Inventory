@@ -79,7 +79,8 @@
 #equip_grid .grid-item.is-premium {
 	border-color: var(--ss-premium-txt);
 }
-/* $ Pricetag */
+/* $ Pricetag + Egg Spinner */
+.grid-item.is-premium div i,
 .premium-item-cost {
 	color: var(--ss-premium-txt);
 }
@@ -130,6 +131,7 @@
 	border-top: 1rem solid var(--ss-vip);
 	filter: drop-shadow(4px 4px 0 var(--ss-vip-txt)) !important; 
 }
+.grid-item.is-vip div i,
 .tool-tip.vip h4 {
 	color: var(--ss-vip-txt) !important;
 }
@@ -168,6 +170,7 @@
 	border-top: 1rem solid var(--ss-yolk0);
 	filter: drop-shadow(4px 4px 0 var(--ss-brown)) !important; 
 }
+.grid-item.is-merch div i,
 .tool-tip.merch h4 {
 	color: var(--ss-brown) !important;
 }
@@ -191,6 +194,7 @@
 #equip_grid .item-tag-limited.highlight {
 	background: radial-gradient(#ffbfed, #ffa8e6, #ff90df, #ff76d6, #ff57cd, #f945c4, #e000a9, #d2009f, #c50095) !important;
 }
+.grid-item.item-tag-limited div i,
 .item-tag-limited .equip_cost {
 	color: var(--ss-limited-border);
 }
@@ -242,6 +246,7 @@
 	border-top: 1rem solid var(--twitch-lt-purple);
 	filter: drop-shadow(4px 4px 0 var(--twitch-dk-purple)) !important; 
 }
+.grid-item.is-drops div i,
 .tool-tip.drops h4 {
 	color: var(--twitch-dk-purple) !important;
 }
@@ -280,6 +285,7 @@
 	border-top: 1rem solid var(--ss-ny0);
 	filter: drop-shadow(4px 4px 0 var(--ss-ny1)) !important; 
 }
+.grid-item.is-ny div i,
 .tool-tip.ny h4 {
 	color: var(--ss-ny1) !important;
 }
@@ -318,6 +324,7 @@
 	border-top: 1rem solid var(--ss-notif1);
 	filter: drop-shadow(4px 4px 0 var(--ss-notif0)) !important; 
 }
+.grid-item.is-notif div i,
 .tool-tip.notif h4 {
 	color: var(--ss-notif0) !important;
 }
@@ -356,6 +363,7 @@
 	border-top: 1rem solid var(--ss-league1);
 	filter: drop-shadow(4px 4px 0 var(--league0)) !important; 
 }
+.grid-item.is-league div i,
 .tool-tip.league h4 {
 	color: var(--ss-league0) !important;
 }
@@ -399,6 +407,7 @@
 	border-top: 1rem solid var(--ss-manual2);
 	filter: drop-shadow(4px 4px 0 var(--ss-manual0)) !important; 
 }
+.grid-item.is-redeemed div i,
 .tool-tip.redeemed h4 {
 	color: var(--ss-manual0) !important;
 }
@@ -444,6 +453,7 @@
 	border-top: 1rem solid white;
 	filter: drop-shadow(4px 4px 0 red) !important; 
 }
+.grid-item.is-creator-yt div i,
 .tool-tip.ytcc h4 {
 	color: red !important;
 }
@@ -484,6 +494,7 @@
 	border-top: 1rem solid white;
 	filter: drop-shadow(4px 4px 0 var(--ss-twitch)) !important; 
 }
+.grid-item.is-creator-twitch div i,
 .tool-tip.twitchcc h4 {
 	color: var(--ss-twitch) !important;
 }
