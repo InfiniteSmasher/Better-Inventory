@@ -74,37 +74,83 @@
 
 
 /* --------------------------- [ Premium ] */
+/* --------- Grid Slot */
+/* Border */
 #equip_grid .grid-item.is-premium {
 	border-color: var(--ss-premium-txt);
 }
-
+/* $ Pricetag */
 .premium-item-cost {
 	color: var(--ss-premium-txt);
 }
-
+/* Highlight */
 #equip_grid .is-premium.highlight {
 	background: radial-gradient(#f2f047, #d5ed40, #b7e93d, #97e53f, #71e044, #5ad744, #40cd44, #19c444, #14b43c, #0fa535, #0a962d, #048726) !important;
+}
+
+/* --------- Tooltip */
+/* Triangles */
+.tool-tip.premium > span:after,
+.tool-tip.premium div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-premium);
+	filter: drop-shadow(4px 4px 0 var(--ss-premium-txt)) !important; 
+}
+/* Text */
+.tool-tip.premium h4 {
+	color: var(--ss-premium-txt) !important;
+}
+
+/* Background */
+.tool-tip.premium span {
+	background: var(--ss-premium);
+}
+
+/* Background Shadow */
+.tool-tip.premium > span,
+.tool-tip.premium div.tool-tip--bubble,
+.tool-tip.premium > span:after,
+.tool-tip.premium div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-premium-txt);
 }
 
 
 
 /* --------------------------- [ VIP ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-vip {
 	border-color: var(--ss-vip-txt);
 }
-
 #equip_grid .is-vip.highlight {
 	background: radial-gradient(#ffe180, #ffd759, #f4c843, #eab82a, #dfa900, #c79200, #ae7d00) !important;
+}
+
+/* --------- Tooltip */
+.tool-tip.vip > span:after,
+.tool-tip.vip div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-vip);
+	filter: drop-shadow(4px 4px 0 var(--ss-vip-txt)) !important; 
+}
+.tool-tip.vip h4 {
+	color: var(--ss-vip-txt) !important;
+}
+.tool-tip.vip span {
+	background: var(--ss-vip);
+}
+.tool-tip.vip > span,
+.tool-tip.vip div.tool-tip--bubble,
+.tool-tip.vip > span:after,
+.tool-tip.vip div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-vip-txt);
 }
 
 
 
 /* --------------------------- [ Merch ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-merch {
 	background: linear-gradient(var(--ss-yolk0), var(--ss-brown));
 	border-color: var(--ss-brown);
 }
-
 .is-merch .equip-item-banner {
 	color: var(--ss-brown);
 	background: var(--ss-yolk0);
@@ -112,41 +158,73 @@
 	padding-right: 2.8em;
 	padding-top: .4em 2.8em;
 }
-
 #equip_grid .is-merch.highlight {
 	background: radial-gradient(var(--ss-yolk0), var(--ss-brown)) !important;
+}
+
+/* --------- Tooltip */
+.tool-tip.merch > span:after,
+.tool-tip.merch div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-yolk0);
+	filter: drop-shadow(4px 4px 0 var(--ss-brown)) !important; 
+}
+.tool-tip.merch h4 {
+	color: var(--ss-brown) !important;
+}
+.tool-tip.merch span {
+	background: var(--ss-yolk0);
+}
+.tool-tip.merch > span,
+.tool-tip.merch div.tool-tip--bubble,
+.tool-tip.merch > span:after,
+.tool-tip.merch div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-brown);
 }
 
 
 
 /* --------------------------- [ Limited ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.item-tag-limited {
 	border-color: var(--ss-limited-border);
 }
-
 #equip_grid .item-tag-limited.highlight {
 	background: radial-gradient(#ffbfed, #ffa8e6, #ff90df, #ff76d6, #ff57cd, #f945c4, #e000a9, #d2009f, #c50095) !important;
 }
-
 .item-tag-limited .equip_cost {
 	color: var(--ss-limited-border);
 }
-
 #equip_grid .item-tag-limited .egg-stroke {
 	fill: var(--ss-limited-border);
 }
-
 .item-tag-limited .equip-item-banner {
 	padding: 0.3em 2.4em;
 }
-
+/* --------- Tooltip */
+.tool-tip.limited > span:after,
+.tool-tip.limited div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-limited);
+	filter: drop-shadow(4px 4px 0 var(--ss-limited-txt)) !important; 
+}
+.tool-tip.limited h4 {
+	color: var(--ss-limited-txt) !important;
+}
+.tool-tip.limited span {
+	background: var(--ss-limited);
+}
+.tool-tip.limited > span,
+.tool-tip.limited div.tool-tip--bubble,
+.tool-tip.limited > span:after,
+.tool-tip.limited div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-limited-txt);
+}
 
 /* --------------------------- [ Twitch Drops ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-drops {
 	background: linear-gradient(to right bottom, var(--twitch-lt-purple), var(--twitch-dk-purple));
 	border-color: var(--twitch-dk-purple);
 }
-
 .is-drops .equip-item-banner {
 	color: var(--twitch-dk-purple);
 	background: var(--twitch-lt-purple);
@@ -154,19 +232,37 @@
 	padding-right: 2.8em;
 	padding-top: .4em 2.8em;
 }
-
 #equip_grid .is-drops.highlight {
 	background: radial-gradient(var(--twitch-lt-purple), var(--twitch-dk-purple)) !important;
+}
+
+/* --------- Tooltip */
+.tool-tip.drops > span:after,
+.tool-tip.drops div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--twitch-lt-purple);
+	filter: drop-shadow(4px 4px 0 var(--twitch-dk-purple)) !important; 
+}
+.tool-tip.drops h4 {
+	color: var(--twitch-dk-purple) !important;
+}
+.tool-tip.drops span {
+	background: var(--twitch-lt-purple);
+}
+.tool-tip.drops > span,
+.tool-tip.drops div.tool-tip--bubble,
+.tool-tip.drops > span:after,
+.tool-tip.drops div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--twitch-dk-purple);
 }
 
 
 
 /* --------------------------- [ New Yolker ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-ny {
 	background: linear-gradient(to right bottom, var(--ss-ny0), var(--ss-ny1));
 	border-color: var(--ss-ny1);
 }
-
 .is-ny .equip-item-banner {
 	color: var(--ss-ny1);
 	background: var(--ss-ny0);
@@ -174,19 +270,37 @@
 	padding-right: 2.8em;
 	padding-top: .4em 2.8em;
 }
-
 #equip_grid .is-ny.highlight {
 	background: radial-gradient(var(--ss-ny0), var(--ss-ny1)) !important;
+}
+
+/* --------- Tooltip */
+.tool-tip.ny > span:after,
+.tool-tip.ny div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-ny0);
+	filter: drop-shadow(4px 4px 0 var(--ss-ny1)) !important; 
+}
+.tool-tip.ny h4 {
+	color: var(--ss-ny1) !important;
+}
+.tool-tip.ny span {
+	background: var(--ss-ny0);
+}
+.tool-tip.ny > span,
+.tool-tip.ny div.tool-tip--bubble,
+.tool-tip.ny > span:after,
+.tool-tip.ny div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-ny1);
 }
 
 
 
 /* --------------------------- [ Notification ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-notif {
 	background: linear-gradient(to right bottom, var(--ss-notif1), var(--ss-notif0));
 	border-color: var(--ss-notif0);
 }
-
 .is-notif .equip-item-banner {
 	color: var(--ss-notif0);
 	background: var(--ss-notif1);
@@ -194,19 +308,37 @@
 	padding-right: 2.8em;
 	padding-top: .4em 2.8em;
 }
-
 #equip_grid .is-notif.highlight {
 	background: radial-gradient(var(--ss-notif1), var(--ss-notif0)) !important;
+}
+
+/* --------- Tooltip */
+.tool-tip.notif > span:after,
+.tool-tip.notif div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-notif1);
+	filter: drop-shadow(4px 4px 0 var(--ss-notif0)) !important; 
+}
+.tool-tip.notif h4 {
+	color: var(--ss-notif0) !important;
+}
+.tool-tip.notif span {
+	background: var(--ss-notif1);
+}
+.tool-tip.notif > span,
+.tool-tip.notif div.tool-tip--bubble,
+.tool-tip.notif > span:after,
+.tool-tip.notif div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-notif0);
 }
 
 
 
 /* --------------------------- [ League ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-league {
 	background: linear-gradient(to right bottom, var(--ss-league1), var(--ss-league0));
 	border-color: var(--ss-league0);
 }
-
 .is-league .equip-item-banner {
 	color: var(--ss-league0);
 	background: var(--ss-league1);
@@ -214,19 +346,37 @@
 	padding-right: 2.8em;
 	padding-top: .4em 2.8em;
 }
-
 #equip_grid .is-league.highlight {
 	background: radial-gradient(var(--ss-league1), var(--ss-league0)) !important;
+}
+
+/* --------- Tooltip */
+.tool-tip.league > span:after,
+.tool-tip.league div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-league1);
+	filter: drop-shadow(4px 4px 0 var(--league0)) !important; 
+}
+.tool-tip.league h4 {
+	color: var(--ss-league0) !important;
+}
+.tool-tip.league span {
+	background: var(--ss-league1);
+}
+.tool-tip.league > span,
+.tool-tip.league div.tool-tip--bubble,
+.tool-tip.league > span:after,
+.tool-tip.league div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-league0);
 }
 
 
 
 /* --------------------------- [ Redeemed ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-redeemed {
 	background: linear-gradient(to right bottom, var(--ss-manual3), var(--ss-manual2), var(--ss-manual1), var(--ss-manual0));
 	border-color: var(--ss-manual0);
 }
-
 .is-redeemed .equip-item-banner {
 	color: var(--ss-manual0);
 	background: var(--ss-manual3);
@@ -234,26 +384,43 @@
 	padding-right: 2em;
 	padding-top: .4em 2.8em;
 }
-
 #equip_grid .is-redeemed.highlight {
 	background: radial-gradient(var(--ss-manual3), var(--ss-manual2), var(--ss-manual1), var(--ss-manual0)) !important;
 }
-
 /* Changes Redeemed Item Shadow Color to Black */
 .is-redeemed .equip_icon, 
 .is-redeemed .giveStuffPopup-content .equip_icon {
 	filter: drop-shadow(0 2mm 0 rgba(0, 0, 0, .4)) !important;
 }
 
+/* --------- Tooltip */
+.tool-tip.redeemed > span:after,
+.tool-tip.redeemed div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-manual2);
+	filter: drop-shadow(4px 4px 0 var(--ss-manual0)) !important; 
+}
+.tool-tip.redeemed h4 {
+	color: var(--ss-manual0) !important;
+}
+.tool-tip.redeemed span {
+	background: var(--ss-manual2);
+}
+.tool-tip.redeemed > span,
+.tool-tip.redeemed div.tool-tip--bubble,
+.tool-tip.redeemed > span:after,
+.tool-tip.redeemed div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-manual0);
+}
+
 
 
 /* --------------------------- [ Content Creator ] */
-/* ---------- [ Youtube ] */
+/* ---------------- [ Youtube ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-creator-yt {
 	background: linear-gradient(to right bottom, white, red);
 	border-color: red;
 }
-
 .is-creator-yt .equip-item-banner {
 	color: red;
 	background: white;
@@ -261,44 +428,78 @@
 	padding-right: 2.8em;
 	padding-top: .4em 2.8em;
 }
-
 #equip_grid .is-creator-yt.highlight {
 	background: radial-gradient(white, red) !important;
 }
-
 .is-creator-yt .equip_cost {
 	color: red;
 }
-
 #equip_grid .is-creator-yt .egg-stroke {
 	fill: red;
 }
 
-/* ---------- [ Twitch ] */
+/* --------- Tooltip */
+.tool-tip.ytcc > span:after,
+.tool-tip.ytcc div.tool-tip--bubble:after {
+	border-top: 1rem solid white;
+	filter: drop-shadow(4px 4px 0 red) !important; 
+}
+.tool-tip.ytcc h4 {
+	color: red !important;
+}
+.tool-tip.ytcc span {
+	background: white;
+}
+.tool-tip.ytcc > span,
+.tool-tip.ytcc div.tool-tip--bubble,
+.tool-tip.ytcc > span:after,
+.tool-tip.ytcc div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em red;
+}
+
+
+/* ---------------- [ Twitch ] */
+/* --------- Grid Slot */
 #equip_grid .grid-item.is-creator-twitch {
 	background: linear-gradient(to right bottom, white, var(--ss-twitch));
 	border-color: var(--ss-twitch);
 }
-
 .is-creator-twitch .equip-item-banner {
 	color: var(--ss-twitch);
 	background: white;
 }
-
 #equip_grid .is-creator-twitch.highlight {
 	background: radial-gradient(white, var(--ss-twitch)) !important;
 }
-
 .is-creator-twitch .equip_cost {
 	color: var(--ss-twitch);
 }
-
 #equip_grid .is-creator-twitch .egg-stroke {
 	fill: var(--ss-twitch);
 }
 
+/* --------- Tooltip */
+.tool-tip.twitchcc > span:after,
+.tool-tip.twitchcc div.tool-tip--bubble:after {
+	border-top: 1rem solid white;
+	filter: drop-shadow(4px 4px 0 var(--ss-twitch)) !important; 
+}
+.tool-tip.twitchcc h4 {
+	color: var(--ss-twitch) !important;
+}
+.tool-tip.twitchcc span {
+	background: white;
+}
+.tool-tip.twitchcc > span,
+.tool-tip.twitchcc div.tool-tip--bubble,
+.tool-tip.twitchcc > span:after,
+.tool-tip.twitchcc div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-twitch);
+}
 
-/* ---------- [ Skin Search ] */
+
+
+/* ---------------------- [ Skin Search ] */
 .inventory-skin-search input {
 	width: 15.3em !important;
 }
@@ -325,21 +526,21 @@
 }
 
 .inventory-skin-search button {
-    text-align: center !important;
-    margin-left: 0.5em;
-    width: 2.5em;
-    height: 2.5em;
+    	text-align: center !important;
+    	margin-left: 0.5em;
+    	width: 2.5em;
+    	height: 2.5em;
 }
 
 .shop-skin-search input,
 .inventory-skin-search input {
-    margin-bottom: 1em;
-    border-width: var(--ss-new-border-width) !important;
-    border-radius: var(--ss-space-lg) !important;
+    	margin-bottom: 1em;
+    	border-width: var(--ss-new-border-width) !important;
+    	border-radius: var(--ss-space-lg) !important;
 }
 
 .random-button {
 	position: relative;
-    top: 0.122em;
+	top: 0.122em;
 	right: 0.2em;
 }
