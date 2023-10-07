@@ -209,7 +209,7 @@
 .tool-tip.limited h4 {
 	color: var(--ss-limited-txt) !important;
 }
-.tool-tip.limited span {
+.tool-tip.limited span:not(.egg-price-egg) {
 	background: var(--ss-limited);
 }
 .tool-tip.limited > span,
@@ -447,7 +447,7 @@
 .tool-tip.ytcc h4 {
 	color: red !important;
 }
-.tool-tip.ytcc span {
+.tool-tip.ytcc span:not(.egg-price-egg) {
 	background: white;
 }
 .tool-tip.ytcc > span,
@@ -487,7 +487,7 @@
 .tool-tip.twitchcc h4 {
 	color: var(--ss-twitch) !important;
 }
-.tool-tip.twitchcc span {
+.tool-tip.twitchcc span:not(.egg-price-egg) {
 	background: white;
 }
 .tool-tip.twitchcc > span,
