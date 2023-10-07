@@ -135,7 +135,7 @@
 .tool-tip.vip h4 {
 	color: var(--ss-vip-txt) !important;
 }
-.tool-tip.vip span {
+.tool-tip.vip span.display-grid {
 	background: var(--ss-vip);
 }
 .tool-tip.vip > span,
