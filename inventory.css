@@ -194,7 +194,7 @@
 #equip_grid .item-tag-limited.highlight {
 	background: radial-gradient(#ffbfed, #ffa8e6, #ff90df, #ff76d6, #ff57cd, #f945c4, #e000a9, #d2009f, #c50095) !important;
 }
-.grid-item.item-tag-limited div i,
+.grid-item.item-tag-limited div i:not(.fa-dollar-sign),
 .item-tag-limited .equip_cost {
 	color: var(--ss-limited-border);
 }
