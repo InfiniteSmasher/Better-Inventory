@@ -1,7 +1,10 @@
 /* ---------------------------- [ Global ] */
 :root {
-	/* Override Border Width */
+	/* Change Border Width */
 	--ss-new-border-width: calc(var(--ss-space-sm) * 0.95);
+
+	/* Change VIP Accent */
+	--ss-vip: #f4c843;
 
 	/* Limited Border */
 	--ss-limited-border: #89097D;
