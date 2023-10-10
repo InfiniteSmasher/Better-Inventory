@@ -4,7 +4,7 @@
 // @name         Better Inventory | Shell Shockers
 // @version      4.0
 // @author       Infinite Smasher
-// @description  Inventory Upgrades - new item themes, item randomizer, misc UI tweaks, and MOAR!
+// @description  Inventory Upgrades - new item themes, skin randomizer, UI improvements, and MOAR!
 // @icon         https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/ico_egg.png
 // @require      https://raw.githubusercontent.com/InfiniteSmasher/Better-Inventory/main/htmlEdits.js
 // @match        *://shellshock.io/*
