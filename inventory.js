@@ -225,7 +225,7 @@ function setupItemTags() {
 	// Wait for specialItemsTag and catalog to be initialized
 	// I could just fetch shellshock.io/data/housePromo.json to get the specialItemsTag
 	let interval = setInterval(() => {
-		if (!extern.catalog || !extern.specialItemsTag) return;
+		if (typeof (extern) === "undefined" || !extern.catalog || !extern.specialItemsTag) return;
 		clearInterval(interval);
 
 		// Add or Remove Missing/Wrong Item Tags
