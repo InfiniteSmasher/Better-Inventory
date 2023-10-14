@@ -204,9 +204,9 @@ function makeVueChanges() {
 		});
 	}
 	
-	let i = setInterval(() => {
+	let setSkinInterval = setInterval(() => {
 		if (typeof (vueApp) === "undefined" || !vueApp.authCompleted || !vueApp.onSignOutClicked) return;
-		clearInterval(i);
+		clearInterval(setSkinInterval);
 		vueApp.authCompleted = function() {
 			setMySkins();
 			this.accountSettled = true;
@@ -224,9 +224,9 @@ function makeVueChanges() {
 function setupItemTags() {
 	// Wait for specialItemsTag and catalog to be initialized
 	// I could just fetch shellshock.io/data/housePromo.json to get the specialItemsTag
-	let interval = setInterval(() => {
+	let itemTagInterval = setInterval(() => {
 		if (typeof (extern) === "undefined" || !extern.catalog || !extern.specialItemsTag) return;
-		clearInterval(interval);
+		clearInterval(itemTagInterval);
 
 		// Add or Remove Missing/Wrong Item Tags
 		itemData.tagEdits.forEach(edit => {
