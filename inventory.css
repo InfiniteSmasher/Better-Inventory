@@ -523,16 +523,12 @@
 }
 
 .shop-skin-search label i {
-	top: -1em;
+	top: -0.8em;
 	right: 0.1em !important;
 }
 
 .inventory-skin-search label {
 	right: 4.2em !important;
-}
-
-.inventory-skin-search label i {
-	top: -1em;
 }
 
 .limited-msg-wrapper {
