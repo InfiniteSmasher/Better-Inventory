@@ -92,6 +92,11 @@
 	background: radial-gradient(#f2f047, #d5ed40, #b7e93d, #97e53f, #71e044, #5ad744, #40cd44, #19c444, #14b43c, #0fa535, #0a962d, #048726) !important;
 }
 
+/* Shadow */
+.is-premium {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-premium-txt) r g b / 50%) !important;
+}
+
 /* --------- Tooltip */
 /* Triangles */
 .tool-tip.premium > span:after,
@@ -126,6 +131,9 @@
 }
 #equip_grid .is-vip.highlight {
 	background: radial-gradient(#ffe180, #ffd759, #f4c843, #eab82a, #dfa900, #c79200, #ae7d00) !important;
+}
+.is-vip {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-vip-txt) r g b / 50%) !important;
 }
 
 /* --------- Tooltip */
@@ -165,6 +173,9 @@
 }
 #equip_grid .is-merch.highlight {
 	background: radial-gradient(var(--ss-yolk0), var(--ss-brown)) !important;
+}
+.is-merch {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-brown) r g b / 50%) !important;
 }
 
 /* --------- Tooltip */
@@ -207,6 +218,10 @@
 .item-tag-limited .equip-item-banner {
 	padding: 0.3em 2.4em;
 }
+.item-tag-limited {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-limited-border) r g b / 50%) !important;
+}
+
 /* --------- Tooltip */
 .tool-tip.limited > span:after,
 .tool-tip.limited div.tool-tip--bubble:after {
@@ -241,6 +256,9 @@
 }
 #equip_grid .is-drops.highlight {
 	background: radial-gradient(var(--twitch-lt-purple), var(--twitch-dk-purple)) !important;
+}
+.is-drops {
+	box-shadow: .16em .16em 0 rgb(from var(--twitch-dk-purple) r g b / 50%) !important;
 }
 
 /* --------- Tooltip */
@@ -281,6 +299,9 @@
 #equip_grid .is-ny.highlight {
 	background: radial-gradient(var(--ss-ny0), var(--ss-ny1)) !important;
 }
+.is-ny {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-ny1) r g b / 50%) !important;
+}
 
 /* --------- Tooltip */
 .tool-tip.ny > span:after,
@@ -320,6 +341,9 @@
 #equip_grid .is-notif.highlight {
 	background: radial-gradient(var(--ss-notif1), var(--ss-notif0)) !important;
 }
+.is-notif {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-notif0) r g b / 50%) !important;
+}
 
 /* --------- Tooltip */
 .tool-tip.notif > span:after,
@@ -358,6 +382,9 @@
 }
 #equip_grid .is-league.highlight {
 	background: radial-gradient(var(--ss-league1), var(--ss-league0)) !important;
+}
+.is-league {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-league0) r g b / 50%) !important;
 }
 
 /* --------- Tooltip */
@@ -402,6 +429,9 @@
 .is-redeemed .equip_icon, 
 .is-redeemed .giveStuffPopup-content .equip_icon {
 	filter: drop-shadow(0 2mm 0 rgba(0, 0, 0, .4)) !important;
+}
+.is-redeemed {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-manual0) r g b / 50%) !important;
 }
 
 /* --------- Tooltip */
@@ -449,6 +479,9 @@
 #equip_grid .is-creator-yt .egg-stroke {
 	fill: red;
 }
+.is-creator-yt {
+	box-shadow: .16em .16em 0 rgb(255 0 0 / 50%) !important;
+}
 
 /* --------- Tooltip */
 .tool-tip.ytcc > span:after,
@@ -489,6 +522,9 @@
 }
 #equip_grid .is-creator-twitch .egg-stroke {
 	fill: var(--ss-twitch);
+}
+.is-creator-twitch {
+	box-shadow: .16em .16em 0 rgb(from var(--ss-twitch) r g b / 50%) !important;
 }
 
 /* --------- Tooltip */
