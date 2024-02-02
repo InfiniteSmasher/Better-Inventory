@@ -81,7 +81,7 @@ function makeVueChanges() {
 			if (this.isNewYolker) {
 				return 'Yolker';
 			}
-  			if (this.isRedeemed) {
+			if (this.isRedeemed) {
 				return 'Redeemed';
 			}	
 			if (this.isYTCreatorItem) {
@@ -107,7 +107,7 @@ function makeVueChanges() {
 			'is-ny': this.isNewYolker,
 			'is-notif': this.isNotifItem,
 			'is-league': this.isLeagueItem,
-   			'is-redeemed': this.isRedeemed,
+			'is-redeemed': this.isRedeemed,
 			'is-creator-yt': this.isYTCreatorItem,
 			'is-creator-twitch': this.isTwitchCreatorItem
 		}
@@ -203,7 +203,7 @@ function makeVueChanges() {
 			return 0;
 		});
 	}
-	
+
 	let setSkinInterval = setInterval(() => {
 		if (typeof (vueApp) === "undefined" || !vueApp.authCompleted || !vueApp.onSignOutClicked) return;
 		clearInterval(setSkinInterval);
@@ -216,11 +216,6 @@ function makeVueChanges() {
 			setTimeout(setMySkins, 500);
 			BAWK.play('ui_reset');
 			this.$refs.homeScreen.onSignOutClicked();
-		}
-		let oldLocFunc = vueApp.setLocData;
-		vueApp.setLocData = (languageCode, newLocData) => {
-			oldLocFunc(languageCode, newLocData);
-			vueData.loc.eq_search_items = "Search Items";
 		}
 	}, 100);
 }
@@ -308,17 +303,28 @@ window.randomizeSkin = () => {
 	BAWK.play("ui_equip");
 }
 
+function init() {
+	let vueAppInterval = setInterval(() => {
+		if (typeof (vueApp) === "undefined") return;
+		clearInterval(vueAppInterval);
+		let oldLocFunc = vueApp.setLocData;
+		vueApp.setLocData = (languageCode, newLocData) => {
+			oldLocFunc(languageCode, newLocData);
+			vueData.loc.eq_search_items = "Search Items";
+		}
+	}, 100);
+	let betterInventoryUpdateCheckElem = document.getElementById("betterInventoryUpdateCheck");
+	if (typeof(betterInventoryUpdateCheckElem) == "undefined" || betterInventoryUpdateCheckElem.dataset.version != 1) {
+		alert("Hello Gamer!\n\nIt looks like your version of Better Inventory isn't updated to the latest version.\n\nTo ensure that you receive future updates with all the latest features, go to Tampermonkey settings and make sure that the \"Update Interval\" setting under the \"Externals\" category is set to \"Always\".\n\nThanks for using Better Inventory, enjoy the added features!\n- Infinite Smasher :)");
+	}
+		setupItemTags();
+		makeVueChanges();
+}
+
 // Get Item Data JSON, Start Mod
 fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/modData.json")
 	.then(res => res.json())
 	.then(res => {
 		itemData = res;
-		setupItemTags();
-		makeVueChanges();
+		init();
 	});
-
-/*
-if (typeof(document.betterInventoryUpdateSync) == "undefined" || document.betterInventoryUpdateSync != 1) {
-	alert("Hello Gamer!\n\nIt looks like your version of Better Inventory isn't updated to the latest version.\n\nTo ensure that you receive future updates with all the latest features, go to Tampermonkey settings and make sure that the \"Update Interval\" setting under the \"Externals\" category is set to \"Always\".\n\nThanks for using Better Inventory, enjoy the added features!\n- Infinite Smasher :)");
-}
-*/
