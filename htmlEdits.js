@@ -17,4 +17,4 @@ equipTemplate.innerHTML = equipTemplate.innerHTML.replace(
 	`categoryLocKey] }} ({{ equip.showingItems.length }})`
 );
 
-document.betterInventoryUpdateSync = 1;
+window.betterInventoryUpdateSync = 1;
