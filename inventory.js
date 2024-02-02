@@ -217,6 +217,11 @@ function makeVueChanges() {
 			BAWK.play('ui_reset');
 			this.$refs.homeScreen.onSignOutClicked();
 		}
+		let oldLocFunc = vueApp.setLocData;
+		vueApp.setLocData = (languageCode, newLocData) => {
+			oldLocFunc(languageCode, newLocData);
+			vueData.loc.eq_search_items = "Search Items";
+		}
 	}, 100);
 }
 
