@@ -316,3 +316,7 @@ fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/modDa
 		setupItemTags();
 		makeVueChanges();
 	});
+
+if (typeof(window.betterInventoryUpdateSync) == "undefined" || window.betterInventoryUpdateSync != 1) {
+	alert("Hello Gamer!\n\nIt looks like your version of Better Inventory isn't updated to the latest version.\n\nTo ensure that you receive future updates with all the latest features, go to Tampermonkey settings and make sure that the \"Update Interval\" setting under the \"Externals\" category is set to \"Always\".\n\nThanks for using Better Inventory, enjoy the added features!\n- Infinite Smasher :)");
+}
