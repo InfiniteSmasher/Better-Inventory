@@ -251,11 +251,6 @@ function makeVueChanges() {
 			if (isSocialA && !isSocialB) return 1;
 			if (!isSocialA && isSocialB) return -1;
 			
-			/*
-			if (a.unlock === 'manual' && b.unlock !== 'manual') return 1;
-			if (a.unlock !== 'manual' && b.unlock === 'manual') return -1;
-			*/
-			
 			if (a.unlock === 'default' && b.unlock !== 'default') return 1;
 			if (a.unlock !== 'default' && b.unlock === 'default') return -1;
 
