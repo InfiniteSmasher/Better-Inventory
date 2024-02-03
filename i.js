@@ -383,20 +383,30 @@ function initBetterInventory() {
 		};
 	
 		vueApp.equip.getItemTotals = () => {
-			if (!vueApp.equip.categoryLocKey) return 0;
-			const [category, subCategory] = vueApp.equip.categoryLocKey.split("_").slice(-2).map(Number);
-			const itemTotals = {
-				[ItemType.Hat]: extern.catalog.hats.length,
-				[ItemType.Stamp]: extern.catalog.stamps.length,
-				[ItemType.Primary]: extern.catalog.primaryWeapons,
-				[ItemType.Secondary]: extern.catalog.secondaryWeapons.length,
-				[ItemType.Grenade]: extern.catalog.grenades.length,
-				[ItemType.Melee]: extern.catalog.melee.length
-			};
-			if (parseInt(category) == ItemType.Primary) {
-				return itemTotals[category].filter(item => item.exclusive_for_class == subCategory).length;
-			}
-			return itemTotals[subCategory];
+			 if (!vueApp.equip.categoryLocKey) return 0;
+			 const [category, subCategory] = vueApp.equip.categoryLocKey.split("_").slice(-2).map(Number);
+			 let resItems = [];
+			 const allItems = {
+				  [ItemType.Hat]: extern.catalog.hats,
+				  [ItemType.Stamp]: extern.catalog.stamps,
+				  [ItemType.Primary]: extern.catalog.primaryWeapons,
+				  [ItemType.Secondary]: extern.catalog.secondaryWeapons,
+				  [ItemType.Grenade]: extern.catalog.grenades,
+				  [ItemType.Melee]: extern.catalog.melee
+			 };
+			 if (vueApp.currentEquipMode == vueApp.equipMode.featured) {
+				  resItems = extern.catalog.getTaggedItems(extern.specialItemsTag);
+			 }
+			 else if (category == ItemType.Primary) {
+				  resItems = allItems[category].filter(item => item.exclusive_for_class == subCategory);
+			 } else {
+				  resItems = allItems[subCategory];
+			 }
+			 if (![vueApp.equipMode.inventory, vueApp.equipMode.featured].includes(vueApp.currentEquipMode)) {
+				  // # of owned shop items (eggs + premium) in the weapon category
+				  resItems = resItems.filter(item => extern.account.isItemOwned(item) && ["purchase", "premium"].includes(item.unlock));
+			 }
+			 return (resItems) ? resItems.length : "???";
 		};
 	}, 100);
 	
