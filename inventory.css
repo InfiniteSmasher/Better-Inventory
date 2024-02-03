@@ -12,15 +12,15 @@
 	/* Yolker Colors */
 	--ss-ny0: #F1C59A; /* ss-yolk0 */
 	--ss-ny1: #D97611; /* ss-yolk2 */
-	
+
 	/* Notif Colors */
 	--ss-notif0: #021340;
 	--ss-notif1: #1A64FF;
-	
+
 	/* League Colors */
 	--ss-league0: #400202;
 	--ss-league1: #FF1A1A;
-	
+
 	/* Manual Colors */
 	--ss-manual0: black;
 	--ss-manual1: #434343;
@@ -383,45 +383,63 @@
 
 
 
-/* --------------------------- [ Redeemed ] */
+/* --------------------------- [ Manual ] */
 /* --------- Grid Slot */
-#equip_grid .grid-item.is-redeemed {
+#equip_grid .grid-item.is-manual {
 	background: linear-gradient(to right bottom, var(--ss-manual3), var(--ss-manual2), var(--ss-manual1), var(--ss-manual0));
 	border-color: var(--ss-manual0);
 }
-.is-redeemed .equip-item-banner {
+.is-manual .equip-item-banner {
 	color: var(--ss-manual0);
 	background: var(--ss-manual3);
 	padding-left: 2em;
 	padding-right: 2em;
 	padding-top: .4em 2.8em;
 }
-#equip_grid .is-redeemed.highlight {
+/* --- Special Items --- */
+.item-tag-event .equip-item-banner {
+	padding-left: 3em;
+	padding-right: 3em;
+}
+.item-tag-promo .equip-item-banner {
+	padding-left: 2.8em;
+	padding-right: 2.8em;
+}
+.item-tag-social .equip-item-banner {
+	padding-left: 2.9em;
+	padding-right: 2.9em;
+}
+.is-egglite .equip-item-banner {
+	padding-left: 2.5em;
+	padding-right: 2.5em;
+}
+
+#equip_grid .is-manual.highlight {
 	background: radial-gradient(var(--ss-manual3), var(--ss-manual2), var(--ss-manual1), var(--ss-manual0)) !important;
 }
-/* Changes Redeemed Item Shadow Color to Black */
-.is-redeemed .equip_icon, 
-.is-redeemed .giveStuffPopup-content .equip_icon {
+/* Changes manual Item Shadow Color to Black */
+.is-manual .equip_icon, 
+.is-manual .giveStuffPopup-content .equip_icon {
 	filter: drop-shadow(0 2mm 0 rgba(0, 0, 0, .4)) !important;
 }
 
 /* --------- Tooltip */
-.tool-tip.redeemed > span:after,
-.tool-tip.redeemed div.tool-tip--bubble:after {
+.tool-tip.manual > span:after,
+.tool-tip.manual div.tool-tip--bubble:after {
 	border-top: 1rem solid var(--ss-manual2);
 	filter: drop-shadow(4px 4px 0 var(--ss-manual0)) !important; 
 }
-.grid-item.is-redeemed div i,
-.tool-tip.redeemed h4 {
+.grid-item.is-manual div i,
+.tool-tip.manual h4 {
 	color: var(--ss-manual0) !important;
 }
-.tool-tip.redeemed span {
+.tool-tip.manual span {
 	background: var(--ss-manual2);
 }
-.tool-tip.redeemed > span,
-.tool-tip.redeemed div.tool-tip--bubble,
-.tool-tip.redeemed > span:after,
-.tool-tip.redeemed div.tool-tip--bubble:after {
+.tool-tip.manual > span,
+.tool-tip.manual div.tool-tip--bubble,
+.tool-tip.manual > span:after,
+.tool-tip.manual div.tool-tip--bubble:after {
 	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-manual0);
 }
 
@@ -537,17 +555,17 @@
 }
 
 .inventory-skin-search button {
-    	text-align: center !important;
-    	margin-left: 0.5em;
-    	width: 2.5em;
-    	height: 2.5em;
+		text-align: center !important;
+		margin-left: 0.5em;
+		width: 2.5em;
+		height: 2.5em;
 }
 
 .shop-skin-search input,
 .inventory-skin-search input {
-    	margin-bottom: 1em;
-    	border-width: var(--ss-new-border-width) !important;
-    	border-radius: var(--ss-space-lg) !important;
+		margin-bottom: 1em;
+		border-width: var(--ss-new-border-width) !important;
+		border-radius: var(--ss-space-lg) !important;
 }
 
 .random-button {
