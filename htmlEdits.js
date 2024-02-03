@@ -14,10 +14,10 @@ equipTemplate.innerHTML = equipTemplate.innerHTML.replace(
 
 equipTemplate.innerHTML = equipTemplate.innerHTML.replace(
 	`categoryLocKey] }}`,
-	`categoryLocKey] }} ({{ equip.showingItems.length }})`
+	`categoryLocKey] }} ({{ equip.showingItems.length }}/{{ (equip.getItemTotals) ? equip.getItemTotals() : 0 }})`
 );
 
 let betterInventoryUpdateCheck = document.createElement('div');
 betterInventoryUpdateCheck.id = "betterInventoryUpdateCheck";
-betterInventoryUpdateCheck.dataset.version = 1;
+betterInventoryUpdateCheck.dataset.version = 2;
 document.head.appendChild(betterInventoryUpdateCheck);
