@@ -32,27 +32,54 @@ function makeVueChanges() {
 		return !this.isLimited && this.itemTags.includes('item-tag-newsletter');
 	}
 
-	// Redeemed (manual, non-special) Item Check
-	// No native "redeemed" unlock type yet
-	comp_item.computed.isRedeemed = function() {
+	// Manual (non-special) Item Check
+	comp_item.computed.isManual = function() {
 		return this.item.unlock == "manual" && !(this.isPremium || this.isVipItem || this.isLimited || this.isMerchItem || this.isDropsItem || this.isNotifItem || this.isLeagueItem || this.isNewYolker);
 	}
 
 	// Twitch Content Creator (shop) Item Check
 	// Best way to do this is through tagging
 	comp_item.computed.isTwitchCreatorItem = function() {
-		return this.itemTags.includes('item-tag-twitchcc');
+		return this.itemTags.includes(`item-tag-twitchcc`);
 	}
 
 	// YT Content Creator (shop) Item Check
 	// Best way to do this is through tagging
 	comp_item.computed.isYTCreatorItem = function() {
-		return this.itemTags.includes('item-tag-ytcc');
+		return this.itemTags.includes(`item-tag-ytcc`);
+	}
+
+	// Cross-Promotional Item Check
+	// Best way to do this is through tagging
+	comp_item.computed.isPromo = function() {
+		return this.itemTags.includes(`item-tag-promo`);
+	}
+
+	// Event Item Check
+	// Best way to do this is through tagging
+	comp_item.computed.isEvent = function() {
+		return this.itemTags.includes(`item-tag-event`);
+	}
+
+	// Homepage Social Item Check
+	// Best way to do this is through tagging
+	comp_item.computed.isSocial = function() {
+		return this.itemTags.includes(`item-tag-social`);
+	}
+
+	// Creator Item Check
+	comp_item.computed.isCreatorItem = function() {
+		return this.isYTCreatorItem || this.isTwitchCreatorItem;
+	}
+
+	// Special Manual Item Check
+	comp_item.computed.isSpecialItem = function() {
+		return this.isPromo || this.isEvent || this.isSocial;
 	}
 
 	// Banner Check
 	comp_item.computed.hasBanner = function() {
-		return this.isPremium || this.isVipItem || this.isLimited || this.isMerchItem || this.isDropsItem || this.isNotifItem || this.isLeagueItem || this.isNewYolker /*|| this.isRedeemed*/ || this.isYTCreatorItem || this.isTwitchCreatorItem;
+		return this.isPremium || this.isVipItem || this.isLimited || this.isMerchItem || this.isDropsItem || this.isNotifItem || this.isLeagueItem || this.isNewYolker || this.isManual || this.isCreatorItem || this.isSpecialItem;
 	}
 
 	// Add Banner Text
@@ -81,9 +108,9 @@ function makeVueChanges() {
 			if (this.isNewYolker) {
 				return 'Yolker';
 			}
-			if (this.isRedeemed) {
-				return 'Redeemed';
-			}	
+			if (this.isManual && !this.isSpecialItem) {
+				return 'Egglite';
+			}
 			if (this.isYTCreatorItem) {
 				return 'YT CC';
 			}
@@ -92,6 +119,15 @@ function makeVueChanges() {
 			}
 			if (this.isLimited) {
 				return 'Limited';
+			}
+			if (this.isSocial) {
+				return 'Social';
+			}
+			if (this.isPromo) {
+				return 'Promo';
+			}
+			if (this.isEvent) {
+				return 'Event';
 			}
 		}
 	}
@@ -107,7 +143,8 @@ function makeVueChanges() {
 			'is-ny': this.isNewYolker,
 			'is-notif': this.isNotifItem,
 			'is-league': this.isLeagueItem,
-			'is-redeemed': this.isRedeemed,
+			'is-egglite': (this.isManual && !this.isSpecialItem),
+			'is-manual': this.isManual,
 			'is-creator-yt': this.isYTCreatorItem,
 			'is-creator-twitch': this.isTwitchCreatorItem
 		}
@@ -133,8 +170,8 @@ function makeVueChanges() {
 				type = " notif"
 			} else if (this.isLeagueItem) {
 				type = " league"
-			} else if (this.isRedeemed) {
-				type = " redeemed"
+			} else if (this.isManual) {
+				type = " manual"
 			} else if (this.isYTCreatorItem) {
 				type = " ytcc"
 			} else if (this.isTwitchCreatorItem) {
@@ -145,7 +182,7 @@ function makeVueChanges() {
 	}
 
 	// Modify Item Sorting (Order)
-	// Premium --> VIP --> Merch --> Drops --> Yolker --> League --> Redeemed --> Default --> Limited --> Creator --> Purchase...
+	// Premium --> VIP --> Merch --> Drops --> Yolker --> League --> Notif --> Egglite --> Promo --> Event --> Social --> Default --> Limited --> Creator --> Shop
 	comp_item_grid.computed.itemsSorted = function() {
 		return this.items.sort((b, a) => {
 			if (a.unlock === 'premium' && b.unlock !== 'premium') return 1;
@@ -181,8 +218,44 @@ function makeVueChanges() {
 			if (isLeagueA && !isLeagueB) return 1;
 			if (!isLeagueA && isLeagueB) return -1;
 
+			// Notif Item Sorting (using "reward" tags
+			let isNotifA = checkA && a.item_data.tags.some(tag => tag.toLowerCase().includes("reward"));
+			let isNotifB = checkB && b.item_data.tags.some(tag => tag.toLowerCase().includes("reward"));
+			if (isNotifA && !isNotifB) return 1;
+			if (!isNotifA && isNotifB) return -1;
+
+			// Special Manual Item Sorting (using tags)
+			let isPromoA = checkA && a.item_data.tags.some(tag => tag.toLowerCase() == "promo");
+			let isPromoB = checkA && b.item_data.tags.some(tag => tag.toLowerCase() == "promo");
+			let isEventA = checkA && a.item_data.tags.some(tag => tag.toLowerCase() == "event");
+			let isEventB = checkA && b.item_data.tags.some(tag => tag.toLowerCase() == "event");
+			let isSocialA = checkA && a.item_data.tags.some(tag => tag.toLowerCase() == "social");
+			let isSocialB = checkA && b.item_data.tags.some(tag => tag.toLowerCase() == "social");
+
+			let isEggliteA = checkA && !(isPromoA || isEventA || isSocialA);
+			let isEggliteB = checkB && !(isPromoB || isEventB || isSocialB);
+
+			// Egglite
+			if (isEggliteA && !isEggliteB) return 1;
+			if (!isEggliteA && isEggliteB) return -1;
+
+			// Promo
+			if (isPromoA && !isPromoB) return 1;
+			if (!isPromoA && isPromoB) return -1;
+
+			// Event
+			if (isEventA && !isEventB) return 1;
+			if (!isEventA && isEventB) return -1;
+
+			// Social
+			if (isSocialA && !isSocialB) return 1;
+			if (!isSocialA && isSocialB) return -1;
+			
+			/*
 			if (a.unlock === 'manual' && b.unlock !== 'manual') return 1;
 			if (a.unlock !== 'manual' && b.unlock === 'manual') return -1;
+			*/
+			
 			if (a.unlock === 'default' && b.unlock !== 'default') return 1;
 			if (a.unlock !== 'default' && b.unlock === 'default') return -1;
 
@@ -227,7 +300,7 @@ function setupItemTags() {
 	let itemTagInterval = setInterval(() => {
 		if (typeof (extern) === "undefined" || !extern.catalog || !extern.specialItemsTag) return;
 		clearInterval(itemTagInterval);
-
+		
 		// Add or Remove Missing/Wrong Item Tags
 		itemData.tagEdits.forEach(edit => {
 			let item = extern.catalog.findItemById(edit.itemId);
@@ -237,7 +310,7 @@ function setupItemTags() {
 			}
 			edit.itemTags.forEach(tag => {
 				let includes = item.item_data.tags.includes(tag);
-				if (edit.action == "add" && !includes) {
+				if (edit.add && !includes) {
 					item.item_data.tags.push(tag);
 				} else if (includes) {
 					item.item_data.tags.splice(item.item_data.tags.indexOf(tag), 1);
@@ -303,21 +376,40 @@ window.randomizeSkin = () => {
 	BAWK.play("ui_equip");
 }
 
-function init() {
-	setupItemTags();
-	makeVueChanges()
+function initBetterInventory() {
 	let vueAppInterval = setInterval(() => {
 		if (typeof (vueApp) === "undefined") return;
 		clearInterval(vueAppInterval);
+		vueApp.loc.eq_search_items = "Search Items";
 		let oldLocFunc = vueApp.setLocData;
 		vueApp.setLocData = (languageCode, newLocData) => {
 			oldLocFunc(languageCode, newLocData);
-			vueData.loc.eq_search_items = "Search Items";
-		}
+			vueApp.loc.eq_search_items = "Search Items";
+		};
+	
+		vueApp.equip.getItemTotals = () => {
+			if (!vueApp.equip.categoryLocKey) return 0;
+			const [category, subCategory] = vueApp.equip.categoryLocKey.split("_").slice(-2).map(Number);
+			const itemTotals = {
+				[ItemType.Hat]: extern.catalog.hats.length,
+				[ItemType.Stamp]: extern.catalog.stamps.length,
+				[ItemType.Primary]: extern.catalog.primaryWeapons,
+				[ItemType.Secondary]: extern.catalog.secondaryWeapons.length,
+				[ItemType.Grenade]: extern.catalog.grenades.length,
+				[ItemType.Melee]: extern.catalog.melee.length
+			};
+			if (parseInt(category) == ItemType.Primary) {
+				return itemTotals[category].filter(item => item.exclusive_for_class == subCategory).length;
+			}
+			return itemTotals[subCategory];
+		};
 	}, 100);
+	
 	let betterInventoryUpdateCheckElem = document.getElementById("betterInventoryUpdateCheck");
-	if (typeof(betterInventoryUpdateCheckElem) == "undefined" || betterInventoryUpdateCheckElem.dataset.version != 1) {
-		alert("Hello Gamer!\n\nIt looks like your version of Better Inventory isn't updated to the latest version.\n\nTo ensure that you receive future updates with all the latest features, go to Tampermonkey settings and make sure that the \"Update Interval\" setting under the \"Externals\" category is set to \"Always\".\n\nThanks for using Better Inventory, enjoy the added features!\n- Infinite Smasher :)");
+	if (typeof(betterInventoryUpdateCheckElem) == "undefined" || betterInventoryUpdateCheckElem.dataset.version < 2) {
+		alert("Hello Gamer!\n\nIt looks like your version of Better Inventory isn't updated to the latest version.");
+		alert("To ensure that you receive future updates with all the latest features, go to Tampermonkey settings and make sure that the \"Update Interval\" setting under the \"Externals\" category is set to \"Always\".");
+		alert("Thanks for using Better Inventory, enjoy the added features!\n- Infinite Smasher :)");
 	};
 }
 
@@ -326,5 +418,8 @@ fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/modDa
 	.then(res => res.json())
 	.then(res => {
 		itemData = res;
-		init();
+		setupItemTags();
+		makeVueChanges();
 	});
+
+initBetterInventory();
