@@ -35,6 +35,11 @@
 	border-color: var(--ss-white) !important;
 }
 
+/* Makes Item Icon White */
+#equip_grid .highlight i {
+	color: var(--ss-white) !important;
+}
+
 /* Forces White Golden Egg Stroke on Custom Item Grid Elements */
 #equip_grid .highlight .egg-stroke {
 	fill: var(--ss-white) !important;
@@ -74,7 +79,14 @@
 	background: white !important;
 }
 
-
+/* Fade In Item Icon + Banner */
+.highlight .equip-vip-icon,
+.highlight:not(.is-shop) .equip_smallprice,
+.highlight .equip-item-banner,
+.highlight:not(.is-shop) .item-icon {
+	transition: all .3s linear;
+	z-index: 1 !important;
+}
 
 /* --------------------------- [ Premium ] */
 /* --------- Grid Slot */
@@ -82,8 +94,9 @@
 #equip_grid .grid-item.is-premium {
 	border-color: var(--ss-premium-txt);
 }
-/* $ Pricetag + Egg Spinner */
+/* $ Pricetag + Egg Spinner + Special Icon */
 .grid-item.is-premium div i:not(.fa-dollar-sign),
+.is-premium .item-icon,
 .premium-item-cost {
 	color: var(--ss-premium-txt);
 }
@@ -134,7 +147,7 @@
 	border-top: 1rem solid var(--ss-vip);
 	filter: drop-shadow(4px 4px 0 var(--ss-vip-txt)) !important; 
 }
-.grid-item.is-vip div i,
+.grid-item.is-vip div .item-icon,
 .tool-tip.vip h4 {
 	color: var(--ss-vip-txt) !important;
 }
@@ -146,6 +159,17 @@
 .tool-tip.vip > span:after,
 .tool-tip.vip div.tool-tip--bubble:after {
 	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-vip-txt);
+}
+
+/* VIP ICON */
+#equip_grid .equip-vip-icon {
+	 width: 1.5em;
+	 height: 1.5em;
+	 margin-left: .15em;
+}
+
+#equip_grid .highlight .equip-vip-icon {
+	fill: white;
 }
 
 
@@ -174,6 +198,7 @@
 	filter: drop-shadow(4px 4px 0 var(--ss-brown)) !important; 
 }
 .grid-item.is-merch div i,
+.is-merch .item-icon,
 .tool-tip.merch h4 {
 	color: var(--ss-brown) !important;
 }
@@ -198,6 +223,7 @@
 	background: radial-gradient(#ffbfed, #ffa8e6, #ff90df, #ff76d6, #ff57cd, #f945c4, #e000a9, #d2009f, #c50095) !important;
 }
 .grid-item.item-tag-limited div i:not(.fa-dollar-sign),
+.item-tag-limited .item-icon,
 .item-tag-limited .equip_cost {
 	color: var(--ss-limited-border);
 }
@@ -251,6 +277,7 @@
 	filter: drop-shadow(4px 4px 0 var(--twitch-dk-purple)) !important; 
 }
 .grid-item.is-drops div i,
+.is-drops .item-icon,
 .tool-tip.drops h4 {
 	color: var(--twitch-dk-purple) !important;
 }
@@ -290,6 +317,7 @@
 	filter: drop-shadow(4px 4px 0 var(--ss-ny1)) !important; 
 }
 .grid-item.is-ny div i,
+.is-ny .item-icon,
 .tool-tip.ny h4 {
 	color: var(--ss-ny1) !important;
 }
@@ -329,6 +357,7 @@
 	filter: drop-shadow(4px 4px 0 var(--ss-notif0)) !important; 
 }
 .grid-item.is-notif div i,
+.is-notif .item-icon,
 .tool-tip.notif h4 {
 	color: var(--ss-notif0) !important;
 }
@@ -368,6 +397,7 @@
 	filter: drop-shadow(4px 4px 0 var(--league0)) !important; 
 }
 .grid-item.is-league div i,
+.league .item-icon,
 .tool-tip.league h4 {
 	color: var(--ss-league0) !important;
 }
@@ -430,6 +460,7 @@
 	filter: drop-shadow(4px 4px 0 var(--ss-manual0)) !important; 
 }
 .grid-item.is-manual div i,
+.is-manual .item-icon,
 .tool-tip.manual h4 {
 	color: var(--ss-manual0) !important;
 }
@@ -462,6 +493,7 @@
 #equip_grid .is-creator-yt.highlight {
 	background: radial-gradient(white, red) !important;
 }
+.is-creator-yt .item-icon,
 .is-creator-yt .equip_cost {
 	color: red;
 }
@@ -503,6 +535,7 @@
 #equip_grid .is-creator-twitch.highlight {
 	background: radial-gradient(white, var(--ss-twitch)) !important;
 }
+.is-creator-twitch .item-icon,
 .is-creator-twitch .equip_cost {
 	color: var(--ss-twitch);
 }
@@ -530,6 +563,12 @@
 	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-twitch);
 }
 
+
+/* ---------------- [ Normal Shop Item ] */
+/* --------- Grid Slot */
+.is-shop .item-icon {
+	color: var(--ss-blue5);
+}
 
 
 /* ---------------------- [ Skin Search ] */
@@ -572,4 +611,160 @@
 	position: relative;
 	top: 0.122em;
 	right: 0.2em;
+}
+
+#player_photo {
+	margin-top: var(--ss-space-sm); 
+	margin-right: var(--ss-space-lg);
+}
+
+#player_photo img {
+	max-width: 4em; 
+	max-height: 4em; 
+	border: 2px solid var(--ss-blue5) !important;
+}
+
+.profile-page-content aside {
+	text-align: right;
+}
+
+
+.profile-badge-container {
+	text-align: center; 
+	background: var(--ss-blue2) !important; 
+	margin-top: 0.1em !important; 
+	margin-bottom: 0.3em !important; 
+	padding: 0.3em 0.6em 0.3em !important;
+	min-width: 10.3em;
+}
+
+.shorter-stats-container {
+	height: 27em !important;
+}
+
+.badge-vip {
+	color: gold;
+}
+
+.badge-wizard {
+	color: var(--ss-blue5);
+}
+
+.badge-eggforcer {
+	background-clip: text !important; 
+	-webkit-background-clip: text !important; 
+	-webkit-text-fill-color:transparent; 
+	background: linear-gradient( to bottom right, white, #eee, #bcc6cc, #a5b0b6);
+}
+
+.badge-social0 {
+	color: #1877F2;
+}
+
+.badge-social1 {
+	background-clip: text !important; 
+	-webkit-background-clip: text !important; 
+	-webkit-text-fill-color:transparent; 
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.badge-social2 {
+	color: black;
+}
+
+.badge-social3 {
+	color: #5539CC;
+}
+
+.badge-social4 {
+	color: red;
+}
+
+.badge-social5 {
+	color: black;
+}
+
+.badge-social6 {
+	color: var(--ss-twitch);
+}
+
+.badge-separator {
+	color: var(--ss-blue5);
+	margin-left: 0.75em; 
+	margin-right: 0.75em;
+}
+
+.badge-margin {
+	margin-right: 0.5em;
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.ttf") format("truetype"); 
+}
+
+.fa-twitter:before {
+	font-family: "Font Awesome 6 Brands";
+	content:"\e61b" !important;
+}
+
+.fa-discord:before {
+	font-family: "Font Awesome 6 Brands";
+	content: "\f392" !important;
+}
+
+.badge-hover:hover {
+	transition: all .2s ease-out;
+	transform: translateY(-.1em) scale(1.1);
+}
+
+.badge-hover:hover:not(.badge-hover-alt) {
+	color: white;
+}
+
+.badge-hover {
+	transition: all .5s linear;
+	transform: scale(1.0);
+}
+
+.badge-hover-alt:hover {
+	background: white;
+}
+
+.equip_smallprice {
+	z-index: 1 !important;
+}
+
+.equip-vip-icon {
+	position: relative !important;
+}
+
+.item-icon {
+	padding-top: 0.3em;
+	padding-left: 0.2em;
+	position: relative !important;
+}
+
+.badge-og {
+	background-clip: text !important; 
+	-webkit-background-clip: text !important; 
+	-webkit-text-fill-color:transparent; 
+	background: linear-gradient( to bottom right, #BA9368, #C49E76, #CEA984, #D9B393, #E3BEA1);
+}
+
+.badge-pandemic {
+	background-clip: text !important; 
+	-webkit-background-clip: text !important; 
+	-webkit-text-fill-color:transparent; 
+	background: linear-gradient( to bottom right, white, #eee, #bcc6cc, #a5b0b6);
+}
+
+.badge-supporter {
+	background-clip: text !important; 
+	-webkit-background-clip: text !important; 
+	-webkit-text-fill-color:transparent; 
+	background: linear-gradient( to right, #3e9c35, #168118, #157811, #036704, #084f09);
 }
