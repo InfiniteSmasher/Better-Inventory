@@ -60,7 +60,7 @@ document.getElementById("profile-screen-template").innerHTML = document.getEleme
 document.getElementById("footer-links-panel-template").innerHTML = document.getElementById("footer-links-panel-template").innerHTML.replace(
 	`version }}</button> | `,
 	`version }}</button> | 
-	<button id="betterInv-footer" class="ss_button_as_text" target="_blank" @click="openInNewTab('https://github.com/InfiniteSmasher/Shell-Shockers-Mods/blob/4173da9d5b6701c306d9e1328a641d98cebd9efc/README.md')">Better Inventory</button> | `);
+	<button id="betterInv-footer" class="ss_button_as_text" target="_blank" @click="openInNewTab('https://github.com/InfiniteSmasher/Shell-Shockers-Mods/blob/4173da9d5b6701c306d9e1328a641d98cebd9efc/info.md')">Better Inventory</button> | `);
 
 
 // Adjust size of stats container for badges
