@@ -528,7 +528,8 @@ function initBetterInventory() {
 			}
 			if (extern.account) {
 				if (extern.account.dateCreated) {
-					let joinYear = extern.account.dateCreated.split("/").pop();
+					let sep = extern.account.dateCreated.indexOf('/') !== -1 ? '/' : '-';
+					let joinYear = extern.account.dateCreated.split(sep).pop();
 					if (Number(joinYear) < 2020) {
 						mainBadges.push({
 							title: "OG Shell Account (Before 2019)",
