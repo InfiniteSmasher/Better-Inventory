@@ -1,6 +1,10 @@
 let itemData = window.mySkins = {};
 window.randomizeSkin = () => { alert("The Better Inventory mod didnt load properly, please refresh!!") };
 
+for (var i = 0; i < SOCIALMEDIA.length; i++) {
+	SOCIALMEDIA[i] = SOCIALMEDIA[i].replace("-square", "");
+}
+
 function makeVueChanges() {
 	// Merch ("physical" unlock) Item Check
 	// This is perfect! Quick and easy to check.
@@ -77,6 +81,11 @@ function makeVueChanges() {
 		return this.isPromo || this.isEvent || this.isSocial;
 	}
 
+	// Normal Shop Item Check
+	comp_item.computed.isNormalShopItem = function() {
+		return this.item.unlock == "purchase" && !(this.isCreatorItem || this.isLimited || this.isEvent);
+	}
+
 	// Banner Check
 	comp_item.computed.hasBanner = function() {
 		return this.isPremium || this.isVipItem || this.isLimited || this.isMerchItem || this.isDropsItem || this.isNotifItem || this.isLeagueItem || this.isNewYolker || this.isManual || this.isCreatorItem || this.isSpecialItem;
@@ -146,7 +155,8 @@ function makeVueChanges() {
 			'is-egglite': (this.isManual && !this.isSpecialItem),
 			'is-manual': this.isManual,
 			'is-creator-yt': this.isYTCreatorItem,
-			'is-creator-twitch': this.isTwitchCreatorItem
+			'is-creator-twitch': this.isTwitchCreatorItem,
+			'is-shop': this.isNormalShopItem
 		}
 	}
 
@@ -180,6 +190,59 @@ function makeVueChanges() {
 			return 'tool-tip' + type;
 		}
 	}
+
+	comp_item.computed.hasIcon = function() {
+		return vueApp.currentEquipMode == vueApp.equipMode.inventory && (this.isPremium || this.isLeagueItem || this.isManual || this.isLimited || this.isDropsItem || this.isNotifItem || this.isMerchItem|| this.isCreatorItem || this.isNewYolker || this.isPromo || this.isSocial || this.isEvent || this.isNormalShopItem);
+	}
+	
+	comp_item.computed.iconClass = function() {
+		if (!this.hasIcon) {
+			return;
+		} else {
+			if (this.isPremium) {
+				return 'fas fa-dollar-sign';
+			}
+			if (this.isMerchItem) {
+				return 'fas fa-tshirt';
+			}
+			if (this.isDropsItem) {
+				return 'fab fa-twitch';
+			}
+			if (this.isNotifItem) {
+				return 'fas fa-bell';
+			}
+			if (this.isLeagueItem) {
+				return 'fas fa-trophy';
+			} 
+			if (this.isNewYolker) {
+				return 'fas fa-envelope-open-text';
+			}
+			if (this.isManual && !this.isSpecialItem) {
+				return 'fas fa-star';
+			}
+			if (this.isYTCreatorItem) {
+				return 'fab fa-youtube';
+			}
+			if (this.isTwitchCreatorItem) {
+				return 'fab fa-twitch';
+			}
+			if (this.isLimited) {
+				return 'far fa-gem';
+			}
+			if (this.isSocial) {
+				return 'fas fa-share';
+			}
+			if (this.isPromo) {
+				return 'fas fa-ad';
+			}
+			if (this.isEvent) {
+				return 'fas fa-calendar-alt';
+			}
+			if (this.isNormalShopItem) {
+				return 'fas fa-egg';
+			}
+		}
+	};
 
 	// Modify Item Sorting (Order)
 	// Premium --> VIP --> Merch --> Drops --> Yolker --> League --> Notif --> Egglite --> Promo --> Event --> Social --> Default --> Limited --> Creator --> Shop
@@ -250,7 +313,7 @@ function makeVueChanges() {
 			// Social
 			if (isSocialA && !isSocialB) return 1;
 			if (!isSocialA && isSocialB) return -1;
-			
+
 			if (a.unlock === 'default' && b.unlock !== 'default') return 1;
 			if (a.unlock !== 'default' && b.unlock === 'default') return -1;
 
@@ -284,7 +347,9 @@ function makeVueChanges() {
 			setTimeout(setMySkins, 500);
 			BAWK.play('ui_reset');
 			this.$refs.homeScreen.onSignOutClicked();
+			vueApp.contentCreator = false;
 		}
+		checkScriptErrors();
 	}, 100);
 }
 
@@ -295,7 +360,7 @@ function setupItemTags() {
 	let itemTagInterval = setInterval(() => {
 		if (typeof (extern) === "undefined" || !extern.catalog || !extern.specialItemsTag) return;
 		clearInterval(itemTagInterval);
-		
+
 		// Add or Remove Missing/Wrong Item Tags
 		itemData.tagEdits.forEach(edit => {
 			let item = extern.catalog.findItemById(edit.itemId);
@@ -371,6 +436,21 @@ window.randomizeSkin = () => {
 	BAWK.play("ui_equip");
 }
 
+function checkScriptErrors() {
+	let scriptCheckInterval = setInterval(() => {
+		if (!vueApp.accountSettled) return;
+		clearInterval(scriptCheckInterval);
+		let updateCheckElem = document.getElementById("betterInventoryUpdateCheck");
+		if (typeof(updateCheckElem) == "undefined" || updateCheckElem.dataset.version < 3) {
+			alert("Hello Gamer!\n\nIt looks like your version of Better Inventory isn't updated to the latest version.");
+			alert("To ensure that you receive future updates with all the latest features, go to Tampermonkey settings and make sure that the \"Update Interval\" setting under the \"Externals\" category is set to \"Always\". Also make sure to empty cache and hard reload!");
+			alert("Thanks for using Better Inventory, enjoy the added features!\n- Infinite Smasher :)");
+		} else if (eval(updateCheckElem.dataset.ids).some(id => !document.getElementById(id))) {
+			if (confirm("Hello Gamer!\n\nSome Better Inventory features failed to load.\n\nPlease press \"Ok\" to refresh!\n\nIf this issue persists after multiple refresh attempts, contact the developer of Better Inventory, infinitesmasher, on Discord.")) window.location.reload();
+		}
+	}, 100);
+}
+
 function initBetterInventory() {
 	let vueAppInterval = setInterval(() => {
 		if (typeof (vueApp) === "undefined") return;
@@ -381,7 +461,7 @@ function initBetterInventory() {
 			oldLocFunc(languageCode, newLocData);
 			vueApp.loc.eq_search_items = "Search Items";
 		};
-	
+
 		vueApp.equip.getItemTotals = () => {
 			 if (!vueApp.equip.categoryLocKey) return 0;
 			 const [category, subCategory] = vueApp.equip.categoryLocKey.split("_").slice(-2).map(Number);
@@ -397,25 +477,106 @@ function initBetterInventory() {
 			 if (vueApp.currentEquipMode == vueApp.equipMode.featured) {
 				  resItems = extern.catalog.getTaggedItems(extern.specialItemsTag);
 			 }
-			 else if (category == ItemType.Primary) {
+			 else if (resItems && category == ItemType.Primary) {
 				  resItems = allItems[category].filter(item => item.exclusive_for_class == subCategory);
 			 } else {
 				  resItems = allItems[subCategory];
 			 }
-			 if (![vueApp.equipMode.inventory, vueApp.equipMode.featured].includes(vueApp.currentEquipMode)) {
+			 if (resItems && ![vueApp.equipMode.inventory, vueApp.equipMode.featured].includes(vueApp.currentEquipMode)) {
 				  // # of owned shop items (eggs + premium) in the weapon category
 				  resItems = resItems.filter(item => extern.account.isItemOwned(item) && ["purchase", "premium"].includes(item.unlock));
 			 }
 			 return (resItems) ? resItems.length : "???";
 		};
+
+		vueApp.addBadgeMargins = (badges) => {
+			for (var i = 0; i < badges.length; i++) {
+				if (i != badges.length - 1) {
+					badges[i].classList += ' badge-margin';
+				}
+				if (badges[i].clickFunc) {
+					badges[i].classList += ' badge-hover'
+				} else {
+					badges[i].clickFunc = () => {};
+				}
+			}
+			return badges;
+		}
+
+		vueApp.getMainBadges = function() {
+			let mainBadges = [];
+			if (vueApp.isSubscriber) {
+				mainBadges.push({
+					title: "VIP Subscriber",
+					classList: "fas fa-egg badge-vip",
+					clickFunc: vueApp.showSubStorePopup
+				});
+			}
+			if ([1, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096].some(x => extern.adminRoles & x)) {
+				mainBadges.push({
+					title: "Wizard (Developer)",
+					classList: "fas fa-hat-wizard badge-wizard",
+					clickFunc: () => { window.open('https://bluewizard.com/wizards/') }
+				});
+			}
+			if ([2, 4, 8192].some(x => extern.adminRoles & x)) {
+				mainBadges.push({
+					title: "Eggforcer (MOD)",
+					classList: "fas fa-shield-alt badge-eggforcer",
+					clickFunc: null
+				});
+			}
+			if (extern.account) {
+				if (extern.account.dateCreated) {
+					let joinYear = extern.account.dateCreated.split("/").pop();
+					if (Number(joinYear) < 2020) {
+						mainBadges.push({
+							title: "OG Shell Account (Before 2019)",
+							classList: "fas fa-hourglass badge-og",
+							clickFunc: null
+						});
+					}
+					if (Number(joinYear) == 2020) {
+						mainBadges.push({
+							title: "Pandemic Gamer (2020)",
+							classList: "fas fa-syringe badge-pandemic",
+							clickFunc: null
+						});
+					}
+				}
+				let premiumValue = extern.account.inventory.filter(i => i.unlock == "premium").reduce((sum, item) => {
+					  return sum + item.price;
+				}, 0);
+				if (premiumValue > 250) {
+					mainBadges.push({
+						title: "Shell Supporter! ($$$)",
+						classList: "fas fa-dollar-sign badge-supporter",
+						clickFunc: null
+					});
+				}
+			}
+			return vueApp.addBadgeMargins(mainBadges);
+		};
+
+		vueApp.getSocialBadges = function() {
+			if (!vueApp.contentCreator) return [];
+			let socialBadges = eval(vueApp.contentCreator).map(s => {
+				return { 
+					title: `${SOCIALMEDIA[s.id].split("-")[1].replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})} Content Creator`,
+					classList: `fab ${SOCIALMEDIA[s.id]} badge-social${s.id} ${(s.id == 1) ? "badge-hover-alt": ''}`,
+					clickFunc: () => { window.open(s.url) }
+				}
+			});
+
+			return vueApp.addBadgeMargins(socialBadges);
+		}
+		vueApp.hasMainBadges = function() {
+			return vueApp.getMainBadges().length > 0;
+		}
+		vueApp.hasProfileBadges = function() {
+			return vueApp.hasMainBadges() || vueApp.getSocialBadges().length > 0; 
+		}
 	}, 100);
-	
-	let betterInventoryUpdateCheckElem = document.getElementById("betterInventoryUpdateCheck");
-	if (typeof(betterInventoryUpdateCheckElem) == "undefined" || betterInventoryUpdateCheckElem.dataset.version < 2) {
-		alert("Hello Gamer!\n\nIt looks like your version of Better Inventory isn't updated to the latest version.");
-		alert("To ensure that you receive future updates with all the latest features, go to Tampermonkey settings and make sure that the \"Update Interval\" setting under the \"Externals\" category is set to \"Always\".");
-		alert("Thanks for using Better Inventory, enjoy the added features!\n- Infinite Smasher :)");
-	};
 }
 
 // Get Item Data JSON, Start Mod
