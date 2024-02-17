@@ -81,11 +81,17 @@
 
 /* Fade In Item Icon + Banner */
 .highlight .equip-vip-icon,
-.highlight:not(.is-shop) .equip_smallprice,
+.highlight:not(.is-shop) .equip_smallprice i,
+.highlight:not(.is-shop) .equip_smallprice div,
+.highlight:not(.is-shop) .egg-stroke,
 .highlight .equip-item-banner,
 .highlight:not(.is-shop) .item-icon {
 	transition: all .3s linear;
 	z-index: 1 !important;
+}
+
+#equip_grid .grid-item:hover:not(.is-shop, .item-tag-default) {
+	transition: all .3s linear;
 }
 
 /* --------------------------- [ Premium ] */
