@@ -55,11 +55,16 @@ As always, thanks for using Better Inventory and enjoy the improved Shell experi
 - __Profile Badges - Clickable & Automatically Displayed__:
 	- Main Badges - VIP, Eggforcer, Wizard, OG Player (Before 2019), Pandemic Gamer (2020), Shell Supporter($$$), etc
    - Social Badges - Automatically displayed based on linked accounts (BWD Content Creators Only)
+   - Clickable Item Icons for each custom item theme! 
 </details>
 
 <details open>
 <summary>Changelog</summary>
 (This only includes the main content updates, not the smaller bugfix updates)
+
+### [7.0] March 5, 2024
+- Item Icons for Premium, VIP, Twitch Drop, New Yolker, Merch, Notification, Limited, and Creator Items can be clicked!
+- Content Creator Item Icons link to their social media profile.
 
 ### [6.0] February 9, 2024
 - Added this wonderful **changelog** (with link on the Shell Homepage)! :)
