@@ -760,6 +760,34 @@
 	transform: translateY(.2em) translateX(.2em)  scale(1.2);
 }
 
+/* Hoverable Item Icon Jitter Effect */
+/*
+.grid-item:not(.highlight) .equip-vip-icon,
+.grid-item:not(.highlight) .item-icon.hover {
+	animation: attention 1000ms infinite;
+}
+
+@keyframes attention {
+	0% {
+		transform: scale(1);
+	}
+	10% {
+		transform: scale(1.2) rotate(10deg);
+	}
+	20% {
+		transform: scale(1);
+	}
+	40% {
+		transform: scale(1.2) rotate(-10deg);
+	}
+	60% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1);
+	}
+} */
+
 .badge-og {
 	background-clip: text !important; 
 	-webkit-background-clip: text !important; 
