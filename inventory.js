@@ -610,7 +610,7 @@ function initBetterInventory() {
 }
 
 // Get Item Data JSON, Start Mod
-fetch("https://e75f393d-efe1-4f8d-b8f2-5b73465f59e7-00-2dlupmfbg0pck.picard.replit.dev/modData.json")
+fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/modData.json")
 	.then(res => res.json())
 	.then(res => {
 		itemData = res;
