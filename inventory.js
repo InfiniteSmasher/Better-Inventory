@@ -194,40 +194,40 @@ function makeVueChanges() {
 	comp_item.computed.hasIcon = function() {
 		return vueApp.currentEquipMode == vueApp.equipMode.inventory && (this.isPremium || this.isLeagueItem || this.isManual || this.isLimited || this.isDropsItem || this.isNotifItem || this.isMerchItem|| this.isCreatorItem || this.isNewYolker || this.isPromo || this.isSocial || this.isEvent || this.isNormalShopItem);
 	}
-	
+
 	comp_item.computed.iconClass = function() {
 		if (!this.hasIcon) {
 			return;
 		} else {
 			if (this.isPremium) {
-				return 'fas fa-dollar-sign';
+				return 'fas fa-dollar-sign hover';
 			}
 			if (this.isMerchItem) {
-				return 'fas fa-tshirt';
+				return 'fas fa-tshirt hover';
 			}
 			if (this.isDropsItem) {
-				return 'fab fa-twitch';
+				return 'fab fa-twitch hover';
 			}
 			if (this.isNotifItem) {
-				return 'fas fa-bell';
+				return 'fas fa-bell hover';
 			}
 			if (this.isLeagueItem) {
 				return 'fas fa-trophy';
 			} 
 			if (this.isNewYolker) {
-				return 'fas fa-envelope-open-text';
+				return 'fas fa-envelope-open-text hover';
 			}
 			if (this.isManual && !this.isSpecialItem) {
 				return 'fas fa-star';
 			}
 			if (this.isYTCreatorItem) {
-				return 'fab fa-youtube';
+				return 'fab fa-youtube hover';
 			}
 			if (this.isTwitchCreatorItem) {
-				return 'fab fa-twitch';
+				return 'fab fa-twitch hover';
 			}
 			if (this.isLimited) {
-				return 'far fa-gem';
+				return 'far fa-gem hover';
 			}
 			if (this.isSocial) {
 				return 'fas fa-share';
@@ -242,6 +242,39 @@ function makeVueChanges() {
 				return 'fas fa-egg';
 			}
 		}
+	};
+
+	function getCreatorUrl(itemId) {
+		let item = itemData.creatorItems.find(item => item.itemId === itemId);
+		return item ? item.socialLink : '';
+	}
+	
+	comp_item.computed.iconClick = function() {
+		if (this.isPremium) {
+			return () => { vueApp.openEquipSwitchTo(vueApp.equipMode.shop) };
+		}
+		if (this.isMerchItem) {
+			return () => { window.open('https://bluewizard.threadless.com/') };
+		}
+		if (this.isVipItem) {
+			return vueApp.showSubStorePopup;
+		}
+		if (this.isDropsItem) {
+			return () => { window.open((dynamicContentPrefix || '') + 'twitch') };
+		}
+		if (this.isNotifItem) {
+			return () => { Notification.requestPermission(); };
+		}
+		if (this.isNewYolker) {
+			return () => { window.open('https://bluewizard.com/subscribe-to-the-new-yolker/') };
+		}
+		if (this.isYTCreatorItem || this.isTwitchCreatorItem) {
+			return () => { window.open(`https://${getCreatorUrl(this.item.id)}`) };
+		}
+		if (this.isLimited) {
+			return () => { vueApp.openEquipSwitchTo(vueApp.equipMode.featured) };
+		}
+		return ()=>{}
 	};
 
 	// Modify Item Sorting (Order)
@@ -581,7 +614,7 @@ function initBetterInventory() {
 }
 
 // Get Item Data JSON, Start Mod
-fetch("https://cdn.jsdelivr.net/gh/InfiniteSmasher/Better-Inventory@latest/modData.json")
+fetch("https://e75f393d-efe1-4f8d-b8f2-5b73465f59e7-00-2dlupmfbg0pck.picard.replit.dev/modData.json")
 	.then(res => res.json())
 	.then(res => {
 		itemData = res;
