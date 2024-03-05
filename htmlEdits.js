@@ -23,8 +23,8 @@ equipTemplate.innerHTML = equipTemplate.innerHTML.replace(
 // Add Item Icons
 document.getElementById("item-template").innerHTML = document.getElementById("item-template").innerHTML.replace(`<span v-if="isVipItem`,
 	`<i v-if="hasIcon" :class="iconClass" class="item-icon" @click.stop="iconClick"></i> 
-	<span @click="iconClick" v-if="isVipItem`
-).replace(`@click="onClick"`, `@click="onClick"`);
+	<span @click.stop="iconClick" v-if="isVipItem`
+);
 
 // Add Profile Image and Badges
 document.getElementById("profile-screen-template").innerHTML = document.getElementById("profile-screen-template").innerHTML.replace(
