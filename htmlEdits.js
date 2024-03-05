@@ -60,7 +60,7 @@ document.getElementById("profile-screen-template").innerHTML = document.getEleme
 document.getElementById("footer-links-panel-template").innerHTML = document.getElementById("footer-links-panel-template").innerHTML.replace(
 	`version }}</button> | `,
 	`version }}</button> | 
-	<button id="betterInv-footer" class="ss_button_as_text" target="_blank" @click="openInNewTab('https://github.com/InfiniteSmasher/Better-Inventory/blob/a965b2b37da2db98e02675863154ca21d62bb749/info.md')">Better Inventory</button> | `);
+	<button id="betterInv-footer" class="ss_button_as_text" target="_blank" @click="openInNewTab('https://github.com/InfiniteSmasher/Better-Inventory/blob/main/info.md')">Better Inventory</button> | `);
 
 
 // Adjust size of stats container for badges
