@@ -754,6 +754,12 @@
 	position: relative !important;
 }
 
+.equip-vip-icon:hover,
+#equip_grid .item-icon.hover:hover {
+	transition: all .2s ease-out;
+	transform: translateY(.2em) translateX(.2em)  scale(1.2);
+}
+
 .badge-og {
 	background-clip: text !important; 
 	-webkit-background-clip: text !important; 
