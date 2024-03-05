@@ -197,7 +197,7 @@ function makeVueChanges() {
 
 	comp_item.computed.iconClass = function() {
 		if (!this.hasIcon) {
-			return;
+			return '';
 		} else {
 			if (this.isPremium) {
 				return 'fas fa-dollar-sign hover';
@@ -243,33 +243,48 @@ function makeVueChanges() {
 			}
 		}
 	};
+
+	comp_item.computed.iconHover = function() {
+		if (this.isVipItem || this.iconClass.includes("hover")) {
+			return () => {
+				BAWK.play("ui_chicken");
+			};
+		}
+		return ()=>{};
+	};
 	
 	comp_item.computed.iconClick = function() {
+		function addClickSFX(func) {
+			return () => {
+				BAWK.play("ui_equip");
+				func();
+			}
+		}
 		if (this.isPremium) {
 			return () => { vueApp.openEquipSwitchTo(vueApp.equipMode.shop) };
 		}
 		if (this.isMerchItem) {
-			return () => { window.open('https://bluewizard.threadless.com/') };
+			return addClickSFX(() => { window.open('https://bluewizard.threadless.com/') });
 		}
 		if (this.isVipItem) {
 			return vueApp.showSubStorePopup;
 		}
 		if (this.isDropsItem) {
-			return () => { window.open((dynamicContentPrefix || '') + 'twitch') };
+			return addClickSFX(() => { window.open((dynamicContentPrefix || '') + 'twitch') });
 		}
 		if (this.isNotifItem) {
-			return () => { Notification.requestPermission(); };
+			return addClickSFX(() => { Notification.requestPermission() });
 		}
 		if (this.isNewYolker) {
-			return () => { window.open('https://bluewizard.com/subscribe-to-the-new-yolker/') };
+			return addClickSFX(() => { window.open('https://bluewizard.com/subscribe-to-the-new-yolker/') });
 		}
 		if (this.isYTCreatorItem || this.isTwitchCreatorItem) {
-			return () => { window.open(`https://${this.item.creatorUrl}`) };
+			return addClickSFX(() => { window.open(`https://${this.item.creatorUrl}`) });
 		}
 		if (this.isLimited) {
 			return () => { vueApp.openEquipSwitchTo(vueApp.equipMode.featured) };
 		}
-		return ()=>{}
+		return ()=>{};
 	};
 
 	// Modify Item Sorting (Order)
