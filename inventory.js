@@ -243,11 +243,6 @@ function makeVueChanges() {
 			}
 		}
 	};
-
-	function getCreatorUrl(itemId) {
-		let item = itemData.creatorItems.find(item => item.itemId === itemId);
-		return item ? item.socialLink : '';
-	}
 	
 	comp_item.computed.iconClick = function() {
 		if (this.isPremium) {
@@ -269,7 +264,7 @@ function makeVueChanges() {
 			return () => { window.open('https://bluewizard.com/subscribe-to-the-new-yolker/') };
 		}
 		if (this.isYTCreatorItem || this.isTwitchCreatorItem) {
-			return () => { window.open(`https://${getCreatorUrl(this.item.id)}`) };
+			return () => { window.open(`https://${this.item.creatorUrl}`) };
 		}
 		if (this.isLimited) {
 			return () => { vueApp.openEquipSwitchTo(vueApp.equipMode.featured) };
@@ -426,6 +421,7 @@ function setupItemTags() {
 			if (!item.item_data.tags) {
 				item.item_data.tags = [];
 			}
+			item.creatorUrl = creatorItem.socialLink;
 			if (item.item_data.tags.includes(`${creatorItem.socialType}CC`)) return;
 			item.item_data.tags.push(`${creatorItem.socialType}CC`);
 		});
