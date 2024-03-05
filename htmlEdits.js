@@ -22,8 +22,8 @@ equipTemplate.innerHTML = equipTemplate.innerHTML.replace(
 
 // Add Item Icons
 document.getElementById("item-template").innerHTML = document.getElementById("item-template").innerHTML.replace(`<span v-if="isVipItem`,
-	`<i v-if="hasIcon" :class="iconClass" class="item-icon" @click="iconClick"></i> 
-	<span @click="iconClick" v-if="isVipItem`
+	`<i v-if="hasIcon" :class="iconClass" class="item-icon"></i> 
+	<span v-if="isVipItem`
 );
 
 // Add Profile Image and Badges
