@@ -52,6 +52,7 @@ As always, thanks for using Better Inventory and enjoy the improved Shell experi
    - __Inventory__: shows "X" items owned / total items
    - __Shop__: shows "X" items remaining to purchase / total items
    - __Limited Edition__: shows "X" items remaining to purchase / total limited items
+- Profile Pictures have returned in the profile section!
 - __Profile Badges - Clickable & Automatically Displayed__:
 	- Main Badges - VIP, Eggforcer, Wizard, OG Player (Before 2019), Pandemic Gamer (2020), Shell Supporter($$$), etc
    - Social Badges - Automatically displayed based on linked accounts (BWD Content Creators Only)
@@ -65,9 +66,11 @@ As always, thanks for using Better Inventory and enjoy the improved Shell experi
 ### [7.0] March 5, 2024
 - Item Icons for Premium, VIP, Twitch Drop, New Yolker, Merch, Notification, Limited, and Creator Items can be clicked!
 - Content Creator Item Icons link to their social media profile.
+- Limited Item Icon shows all owned + shop limited items in the limited item section when clicked
 
 ### [6.0] February 9, 2024
 - Added this wonderful **changelog** (with link on the Shell Homepage)! :)
+- Account **Profile Pictures** have returned in the profile section!
 - Interactive **Profile Badge System** added to the Profile screen
 - **New Badges** such as VIP, Wizard, Eggforcer, CC Socials, etc
 - More badges to come soon! 
