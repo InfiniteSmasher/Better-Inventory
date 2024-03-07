@@ -247,12 +247,12 @@ function makeVueChanges() {
 	comp_item.computed.iconHover = function() {
 		if (this.isVipItem || this.iconClass.includes("hover")) {
 			return () => {
-				BAWK.play("ui_chicken");
+				//BAWK.play("ui_chicken");
 			};
 		}
 		return ()=>{};
 	};
-	
+
 	comp_item.computed.iconClick = function() {
 		function addClickSFX(func) {
 			return () => {
@@ -282,7 +282,10 @@ function makeVueChanges() {
 			return addClickSFX(() => { window.open(`https://${this.item.creatorUrl}`) });
 		}
 		if (this.isLimited) {
-			return () => { vueApp.openEquipSwitchTo(vueApp.equipMode.featured) };
+			return () => { 
+				vueApp.openEquipSwitchTo(vueApp.equipMode.featured);
+				vueApp.equip.showingItems = extern.getTaggedItems(vueApp.equip.specialItemsTag).filter(i => (i.is_available || extern.isItemOwned(i)));
+			};
 		}
 		return ()=>{};
 	};
@@ -519,7 +522,7 @@ function initBetterInventory() {
 				  [ItemType.Melee]: extern.catalog.melee
 			 };
 			 if (vueApp.currentEquipMode == vueApp.equipMode.featured) {
-				  resItems = extern.catalog.getTaggedItems(extern.specialItemsTag);
+				  resItems = extern.catalog.getTaggedItems(vueApp.equip.specialItemsTag).filter(i => (i.is_available || extern.isItemOwned(i)));
 			 }
 			 else if (resItems && category == ItemType.Primary) {
 				  resItems = allItems[category].filter(item => item.exclusive_for_class == subCategory);
