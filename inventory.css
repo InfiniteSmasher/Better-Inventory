@@ -154,6 +154,7 @@
 	filter: drop-shadow(4px 4px 0 var(--ss-vip-txt)) !important; 
 }
 .grid-item.is-vip div .item-icon,
+.grid-item.is-vip div i,
 .tool-tip.vip h4 {
 	color: var(--ss-vip-txt) !important;
 }
