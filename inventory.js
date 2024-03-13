@@ -592,7 +592,7 @@ function initBetterInventory() {
 						});
 					}
 				}
-				let premiumValue = extern.account.inventory.filter(i => i.unlock == "premium").reduce((sum, item) => {
+				let premiumValue = extern.account.inventory.filter(i => i && i.unlock == "premium").reduce((sum, item) => {
 					  return sum + item.price;
 				}, 0);
 				if (premiumValue > 250) {
