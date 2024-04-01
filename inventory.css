@@ -847,5 +847,4 @@
 
 .grid-item.highlight:not(:hover) .item-icon.hover {
 	animation: icon-idle-animation 8s ease-in-out infinite;
-	color: icon-idle-animation !important;
 }
