@@ -849,3 +849,37 @@
 .grid-item.highlight:not(:hover) .item-icon.hover {
 	animation: icon-idle-animation 8s ease-in-out infinite;
 }
+
+@keyframes badge-idle-animation {
+  0% {
+    transform: scale(1);
+  }
+  83% {
+    transform: scale(1);
+  }
+  84% {
+    transform: scale(1.3) translateY(-.1em);
+  }
+  86% {
+    transform: rotate(7deg) scale(1.2);
+  }
+  87% {
+    transform: rotate(-7deg) scale(1.2) translateY(-.1em);
+  }
+  89% {
+    transform: rotate(7deg) scale(1.2) translateY(-.1em);
+  }
+  92% {
+    transform: rotate(-7deg) scale(1.2) translateY(-.1em);
+  }
+  97% {
+    transform: scale(0.5) rotate(-360deg);
+  }
+  100 {
+    transform: scale(1);
+  }
+}
+
+#profile-badges:not(:hover) .badge-hover:not(:hover) {
+	animation: badge-idle-animation 8s ease-in-out infinite;
+}
