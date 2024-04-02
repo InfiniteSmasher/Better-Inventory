@@ -845,6 +845,8 @@
   }
 }
 
+.grid-item.is-creator-yt:not(:hover) .item-icon.hover,
+.grid-item.is-creator-twitch:not(:hover) .item-icon.hover,
 .grid-item.highlight:not(:hover) .equip-vip-icon,
 .grid-item.highlight:not(:hover) .item-icon.hover {
 	animation: icon-idle-animation 8s ease-in-out infinite;
