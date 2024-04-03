@@ -3,6 +3,9 @@
 	/* Change Border Width */
 	--ss-new-border-width: calc(var(--ss-space-sm) * 0.95);
 
+	/* Fix Short Scrollmask */
+	--ss-item-mask-width: calc(var(--ss-aside-panel-width));
+
 	/* Change VIP Accent */
 	--ss-vip: #f4c843;
 
