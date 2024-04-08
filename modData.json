@@ -13,7 +13,10 @@
 		"twitchcc"
 	],
 	"tagEdits": [
-		{ "add": 1, "itemId": 3453,  "itemTags": ["newsletter"] },
+		{ "add": 1, "itemId": 3000,  "itemTags": ["Default"] },
+		{ "add": 1, "itemId": 15000,  "itemTags": ["Default"] },
+		{ "add": 1, "itemId": 15001,  "itemTags": ["Default"] },
+		{ "add": 1, "itemId": 15002,  "itemTags": ["Default"] },
 		{ "add": 1, "itemId": 1054,  "itemTags": ["promo"] },
 		{ "add": 1, "itemId": 1161,  "itemTags": ["promo"] },
 		{ "add": 1, "itemId": 1162,  "itemTags": ["promo"] },
