@@ -9,12 +9,20 @@
 	/* Change VIP Accent */
 	--ss-vip: #f4c843;
 
+	/* Premium Shadow */
+	--ss-premium-shadow: rgba(32, 73, 8, 0.4); 
+
 	/* Limited Border */
 	--ss-limited-border: #89097D;
+	--ss-limited-shadow: rgba(137, 9, 125, 0.4);
+
+	/* Drops Shadow */
+	--ss-drops-shadow: rgba(64, 0, 143, 0.4);
 
 	/* Yolker Colors */
 	--ss-ny0: #F1C59A; /* ss-yolk0 */
 	--ss-ny1: #D97611; /* ss-yolk2 */
+	--ss-ny-shadow: rgba(217, 118, 17, 0.4);
 
 	/* Notif Colors */
 	--ss-notif0: #021340;
@@ -29,6 +37,14 @@
 	--ss-manual1: #434343;
 	--ss-manual2: #A2A2A2;
 	--ss-manual3: #B1B1B1;
+	--ss-manual-shadow: rgba(0, 0, 0, .4);
+
+	/* Legacy Colors */
+	--ss-legacy-dkgray: #212122;
+	--ss-legacy-dkgreen: #46442D;
+	--ss-legacy-ltgreen: #7D7A51;
+	--ss-legacy-orange: #D8712B;
+	--ss-legacy-shadow: rgba(70, 68, 45, .4);
 }
 
 /* --------------------------- [ Overrides ] */
@@ -117,6 +133,12 @@
 /* Highlight */
 #equip_grid .is-premium.highlight {
 	background: radial-gradient(#f2f047, #d5ed40, #b7e93d, #97e53f, #71e044, #5ad744, #40cd44, #19c444, #14b43c, #0fa535, #0a962d, #048726) !important;
+}
+/* Item Shadow */
+.is-premium.secondary .equip_icon, 
+.is-premium.primary .equip_icon, 
+.is-premium.giveStuffPopup-content .equip_icon {
+	filter: drop-shadow(0 2mm 0 var(--ss-premium-shadow));
 }
 
 /* --------- Tooltip */
@@ -248,6 +270,12 @@
 .item-tag-limited .equip-item-banner {
 	padding: 0.3em 2.4em;
 }
+.item-tag-limited.secondary .equip_icon, 
+.item-tag-limited.primary .equip_icon, 
+.item-tag-limited.giveStuffPopup-content .equip_icon {
+	filter: drop-shadow(0 2mm 0 var(--ss-limited-shadow));
+}
+
 
 /* --------- Tooltip */
 .tool-tip.limited > span:after,
@@ -283,6 +311,11 @@
 }
 #equip_grid .is-drops.highlight {
 	background: radial-gradient(var(--twitch-lt-purple), var(--twitch-dk-purple)) !important;
+}
+.is-drops.secondary .equip_icon, 
+.is-drops.primary .equip_icon, 
+.is-drops.giveStuffPopup-content .equip_icon {
+	filter: drop-shadow(0 2mm 0 var(--ss-drops-shadow));
 }
 
 /* --------- Tooltip */
@@ -323,6 +356,11 @@
 }
 #equip_grid .is-ny.highlight {
 	background: radial-gradient(var(--ss-ny0), var(--ss-ny1)) !important;
+}
+.is-ny.secondary .equip_icon, 
+.is-ny.primary .equip_icon, 
+.is-ny.giveStuffPopup-content .equip_icon {
+	filter: drop-shadow(0 2mm 0 var(--ss-ny-shadow));
 }
 
 /* --------- Tooltip */
@@ -463,9 +501,10 @@
 	background: radial-gradient(var(--ss-manual3), var(--ss-manual2), var(--ss-manual1), var(--ss-manual0)) !important;
 }
 /* Changes manual Item Shadow Color to Black */
-.is-manual .equip_icon, 
-.is-manual .giveStuffPopup-content .equip_icon {
-	filter: drop-shadow(0 2mm 0 rgba(0, 0, 0, .4)) !important;
+.is-manual.secondary .equip_icon, 
+.is-manual.primary .equip_icon, 
+.is-manual.giveStuffPopup-content .equip_icon {
+	filter: drop-shadow(0 2mm 0 var(--ss-manual-shadow)) !important;
 }
 
 /* --------- Tooltip */
@@ -576,6 +615,51 @@
 .tool-tip.twitchcc > span:after,
 .tool-tip.twitchcc div.tool-tip--bubble:after {
 	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-twitch);
+}
+
+/* ---------------- [ Legacy ] */
+/* --------- Grid Slot */
+#equip_grid .grid-item.is-legacy {
+	background: linear-gradient(to right bottom, var(--ss-legacy-ltgreen), var(--ss-legacy-dkgreen));
+	border-color: var(--ss-legacy-dkgray);
+}
+.is-legacy .equip-item-banner {
+	color: var(--ss-legacy-orange);
+	background: var(--ss-legacy-ltgreen);
+}
+.is-legacy.highlight .equip-item-banner {
+	color: var(--ss-legacy-dkgreen);
+}
+#equip_grid .is-legacy.highlight {
+	background: radial-gradient(var(--ss-legacy-ltgreen), var(--ss-legacy-dkgreen)) !important;
+}
+.is-legacy .item-icon {
+	color: var(--ss-legacy-orange);
+}
+.is-legacy.secondary .equip_icon, 
+.is-legacy.primary .equip_icon, 
+.is-legacy.giveStuffPopup-content .equip_icon {
+	filter: drop-shadow(0 2mm 0 var(--ss-legacy-shadow));
+}
+
+/* --------- Tooltip */
+.tool-tip.legacy > span:after,
+.tool-tip.legacy div.tool-tip--bubble:after {
+	border-top: 1rem solid var(--ss-legacy-ltgreen);
+	filter: drop-shadow(4px 4px 0 var(--ss-legacy-dkgreen)) !important; 
+}
+.grid-item.is-legacy div i,
+.tool-tip.legacy h4 {
+	color: var(--ss-legacy-orange) !important;
+}
+.tool-tip.legacy span:not(.egg-price-egg) {
+	background: var(--ss-legacy-ltgreen);
+}
+.tool-tip.legacy > span,
+.tool-tip.legacy div.tool-tip--bubble,
+.tool-tip.legacy > span:after,
+.tool-tip.legacy div.tool-tip--bubble:after {
+	box-shadow: 0.25em 0.25em 0em 0.1em var(--ss-legacy-dkgreen);
 }
 
 
@@ -820,31 +904,31 @@
 
 @keyframes icon-idle-animation {
   0% {
-    transform: scale(1);
+	 transform: scale(1);
   }
   83% {
-    transform: scale(1);
+	 transform: scale(1);
   }
   84% {
-    transform: scale(1.3) translateX(.1em) translateY(.1em);
+	 transform: scale(1.3) translateX(.1em) translateY(.1em);
   }
   86% {
-    transform: rotate(7deg) scale(1.2) translateX(.1em) translateY(.1em);
+	 transform: rotate(7deg) scale(1.2) translateX(.1em) translateY(.1em);
   }
   87% {
-    transform: rotate(-7deg) scale(1.2) translateX(.1em) translateY(.1em);
+	 transform: rotate(-7deg) scale(1.2) translateX(.1em) translateY(.1em);
   }
   89% {
-    transform: rotate(7deg) scale(1.2) translateX(.1em) translateY(.1em);
+	 transform: rotate(7deg) scale(1.2) translateX(.1em) translateY(.1em);
   }
   92% {
-    transform: rotate(-7deg) scale(1.2) translateX(.1em) translateY(.1em);
+	 transform: rotate(-7deg) scale(1.2) translateX(.1em) translateY(.1em);
   }
   97% {
-    transform: scale(0.5) rotate(-360deg);
+	 transform: scale(0.5) rotate(-360deg);
   }
   100 {
-    transform: scale(1);
+	 transform: scale(1);
   }
 }
 
@@ -857,31 +941,31 @@
 
 @keyframes badge-idle-animation {
   0% {
-    transform: scale(1);
+	 transform: scale(1);
   }
   83% {
-    transform: scale(1);
+	 transform: scale(1);
   }
   84% {
-    transform: scale(1.3) translateY(-.1em);
+	 transform: scale(1.3) translateY(-.1em);
   }
   86% {
-    transform: rotate(7deg) scale(1.2);
+	 transform: rotate(7deg) scale(1.2);
   }
   87% {
-    transform: rotate(-7deg) scale(1.2) translateY(-.1em);
+	 transform: rotate(-7deg) scale(1.2) translateY(-.1em);
   }
   89% {
-    transform: rotate(7deg) scale(1.2) translateY(-.1em);
+	 transform: rotate(7deg) scale(1.2) translateY(-.1em);
   }
   92% {
-    transform: rotate(-7deg) scale(1.2) translateY(-.1em);
+	 transform: rotate(-7deg) scale(1.2) translateY(-.1em);
   }
   97% {
-    transform: scale(0.5) rotate(-360deg);
+	 transform: scale(0.5) rotate(-360deg);
   }
   100 {
-    transform: scale(1);
+	 transform: scale(1);
   }
 }
 
