@@ -381,6 +381,37 @@ function makeVueChanges() {
 		});
 	}
 
+	comp_equip_screen.methods.selectItemClickSound = (selectedItem) => {
+		let selectSound;
+		if (![ItemType.Hat, ItemType.Stamp].includes(selectedItem.item_type_id) && selectedItem.unlock !== 'default') {
+			const meshName = selectedItem.item_data.meshName;
+			switch (selectedItem.item_type_id) {
+				case ItemType.Grenade:
+					selectSound = selectedItem.item_data.sound;
+					break;
+				case ItemType.Melee:
+					const sounds = Object.keys(BAWK.sounds).filter(s => s.startsWith(meshName));
+					selectSound = sounds[Math.floor(Math.random() * sounds.length)];
+					break;
+				default:
+					selectSound = `${meshName}_fire`;
+					break;
+			}
+		}
+		if (BAWK.sounds[selectSound] && (selectedItem.exclusive_for_class === 0 || selectedItem.exclusive_for_class === 4)) {
+			if (this.fireInterval) clearInterval(this.fireInterval);
+
+			let shotCount = 0;
+			this.fireInterval = setInterval(() => {
+				if (shotCount >= 5) clearInterval(this.fireInterval);
+				BAWK.play(selectSound);
+				shotCount++;
+			}, selectedItem.exclusive_for_class === 4 ? 70 : 95);
+		} else {
+			BAWK.play(selectSound, '', 'ui_click');
+		}
+	};
+
 	let setSkinInterval = setInterval(() => {
 		if (typeof (vueApp) === "undefined" || !vueApp.authCompleted || !vueApp.onSignOutClicked) return;
 		clearInterval(setSkinInterval);
@@ -592,8 +623,8 @@ function initBetterInventory() {
 						});
 					}
 				}
-				let premiumValue = extern.account.inventory.filter(i => i && i.unlock == "premium").reduce((sum, item) => {
-					  return sum + item.price;
+				let premiumValue = extern.account.inventory.filter(i => i && i.unlock == "premium" && i.price != 2147483647).reduce((sum, item) => {
+				  return sum + item.price;
 				}, 0);
 				if (premiumValue > 250) {
 					mainBadges.push({
