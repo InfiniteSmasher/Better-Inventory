@@ -426,7 +426,7 @@ function makeVueChanges() {
 			this.$refs.homeScreen.onSignOutClicked();
 			vueApp.contentCreator = false;
 		}
-		checkScriptErrors();
+		//checkScriptErrors(); // This was a stupid idea...
 	}, 100);
 }
 
