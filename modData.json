@@ -15,7 +15,6 @@
 	"tagEdits": [
 		{ "add": 0, "itemId": 2542,  "itemTags": ["May24"] },
 		{ "add": 0, "itemId": 2540,  "itemTags": ["May24"] },
-		{ "add": 1, "itemId": 2533,  "itemTags": ["Drops6"] },
 		{ "add": 1, "itemId": 3000,  "itemTags": ["Default"] },
 		{ "add": 1, "itemId": 15000,  "itemTags": ["Default"] },
 		{ "add": 1, "itemId": 15001,  "itemTags": ["Default"] },
